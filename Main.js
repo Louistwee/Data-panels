@@ -1,4 +1,14 @@
 (function(window,$,undefined){
+	
+	$.connector = function(obj){
+		obj.connections = new Array();
+		obj.prototype = $.connector.fn;
+		return obj;
+	};
+	$.connector.fn = {};
+	$.connector.fn.isConnectedWith = function(connector){
+	
+	};
 	$.fn.addConnector = function(obj){
 		//create the element
 		obj.connector = $('<div></div>')[0];
