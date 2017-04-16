@@ -1,7 +1,7 @@
 # Connect
 A js library for data connect lines.
 
-## Comming:
+## To Do:
 
 - [ ] Create the Connection object.
 - [ ] Show a litle box.
