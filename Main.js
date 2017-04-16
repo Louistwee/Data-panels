@@ -2,6 +2,7 @@
 	//connector object
 	$.connector = function(obj){
 		obj.connections = new Array();
+		if(obj.value === obj.blablabla)
 		obj.__proto__ = $.connector.fn;
 		return obj;
 	};
@@ -34,12 +35,14 @@
 			this.element.value = value;
 		}
 	};
+	//connect
 	$.connector.fn.connect = function(otherobj){
 		this.connections.push(otherobj);
 		this.isconnected(otherobj);
 		otherobj.connections.push(this);
 		otherobj.isconnected(this);
 	};
+	//disconnect 
 	$.connector.fn.disconnect = function(otherobj){
 		$.each(this.connections,function(index,connection){
 				if(otherobj === connection){
@@ -52,7 +55,8 @@
 				}
 			});
 	}
-	$.getConnectorElement = function(){
+	//return element
+	$.connector.fn.element = function(){
 		//return a  div (little box) 5px x 5px with border 1px 
 	}
 	$.fn.addConnector = function(obj){
