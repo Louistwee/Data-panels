@@ -45,15 +45,14 @@
 	//disconnect 
 	$.connector.fn.disconnect = function(otherobj){
 		$.each(this.connections,function(index,connection){
-				if(otherobj === connection){
-					this.connections.splice(index, 1);
-				}
-			});
-			$.each(otherobj.connections,function(index,connection){
-				if(this === connection){
-					otherobj.connections.splice(index, 1);
-				}
-			});
+			if(otherobj === connection){
+				this.connections.splice(index, 1);
+			}
+		});
+		$.each(otherobj.connections,function(index,connection){
+			if(this === connection){
+				otherobj.connections.splice(index, 1);
+			}
 		});
 	}
 })(window,$)
