@@ -1,5 +1,5 @@
 # Connect
-A js library for data connect lines.
+A jQuery library for data connect lines.
 
 ## To Do:
 
