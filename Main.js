@@ -78,12 +78,12 @@
 			borderWidth:1,
 			borderColor:'black',
 		});
-		if(this.type == 'output'){
+		if(connector.box.type == 'output'){
 			$(connector.box).css({
 				borderColor:'transparent',
 				backgroundColor:'black',
 			});
-		}else{//this.type == 'input'
+		}else{//connector.box.type == 'input'
 			$(connector.box).css({
 				borderColor:'black',
 				backgroundColor:'transparent',
@@ -91,5 +91,10 @@
 		}
 		return connector.box;
 	};
-	$.connectBox.fn = {}
+	$.connectBox.fn = {
+		
+	};
+	$.connectLine = function(box1,box2){
+		
+	};
 })(window,$)
