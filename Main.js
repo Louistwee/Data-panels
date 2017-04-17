@@ -37,9 +37,9 @@
 	//connect
 	$.connector.fn.connect = function(otherobj){
 		this.connections.push(otherobj);
-		this.isconnected(otherobj);
+		this.isConnectedWith(otherobj);
 		otherobj.connections.push(this);
-		otherobj.isconnected(this);
+		otherobj.isConnectedWith(this);
 	};
 	//disconnect 
 	$.connector.fn.disconnect = function(otherobj){
