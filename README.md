@@ -4,7 +4,7 @@ A jQuery library for data connect lines.
 
 ## Wiki
 
-[Wiki](wiki)
+[Wiki](../../wiki)
 
 ## To Do
 
