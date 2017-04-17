@@ -55,23 +55,4 @@
 				}
 			});
 	}
-	//return element
-	$.connector.fn.element = function(){
-		//return a  div (little box) 5px x 5px with border 1px 
-	}
-	$.fn.addConnector = function(obj){
-		$.connector(obj);
-		//add the input element
-		obj.element = $(this).get(0);
-		//create the connections array;
-		
-		if(obj.type == 'output'){
-			$(obj.element).on('input',function(){
-				obj.edit(this.value)
-			});
-		}else{
-			
-		}
-		return obj;
-	}
 })(window,$)
