@@ -1,9 +1,10 @@
 # Connect
+
 A jQuery library for data connect lines.
 
-## Methods
+## Wiki
 
-Look for closed Issues
+[Wiki](wiki)
 
 ## To Do
 
