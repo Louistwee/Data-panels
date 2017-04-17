@@ -63,32 +63,33 @@
 		return this;
 	};
 	//box
-	$.connector.fn.box = function(){
-		if(this.boxElement){
-			return this.boxElement;
-		}else{
-			this.boxElement = $('<div></div>')[0];
-			this.boxElement.connector = this;
-			$(this.boxElement).css({
-				width:5,
-				height:5,
-				borderStyle:'solid',
-				position:'absolute',
-				borderWidth:1,
-				borderColor:'black',
-			});
-			if(this.type == 'output'){
-				$(this.boxElement).css({
-					borderColor:'transparent',
-					backgroundColor:'black',
-				});
-			}else{//this.type == 'input'
-				$(this.boxElement).css({
-					borderColor:'black',
-					backgroundColor:'transparent',
-				});
-			}
-			return this.boxElement;
+	$.connectBox = function(connector){
+		if(connector.box){
+			return connector.box;
 		}
+		connector.box = $('<div></div>')[0];
+		connector.box.connector = connector;
+		connector.box.__proto__ = $.connectBox.fn
+		$(connector.box).css({
+			width:5,
+			height:5,
+			borderStyle:'solid',
+			position:'absolute',
+			borderWidth:1,
+			borderColor:'black',
+		});
+		if(this.type == 'output'){
+			$(connector.box).css({
+				borderColor:'transparent',
+				backgroundColor:'black',
+			});
+		}else{//this.type == 'input'
+			$(connector.box).css({
+				borderColor:'black',
+				backgroundColor:'transparent',
+			});
+		}
+		return connector.box;
 	};
+	$.connectBox.fn = {}
 })(window,$)
