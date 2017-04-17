@@ -74,6 +74,14 @@
 		connector.box.lines = new Array();
 		connector.box.connector = connector;
 		connector.box.__proto__ = $.connectBox.fn;
+		connector.box.y = null;
+		connector.box.x = null;
+		connector.box.interval = setInterval(function(){
+			var offset = $(connector.box).offset();
+			if(offset.x != connector.box.x || offset.y != connector.box.y){
+				$(connector.box).trigger('offsetchange',offset);
+			}
+		},10);
 		if(connector.box.color){
 			var color = connector.box.color;
 		}else{
@@ -109,7 +117,14 @@
 		
 	};
 	$.connectLine = function(box1,box2){
-		//check if there is a line
+		if(false){//check if there is a line
+			return;//return the line
+		}else{
+			var line = $('<div></div>')[0];
+			line.css({
+			
+			});
+		}
 	};
 	$.connectLine.fn = {};
 	$.connectLine.fn.remove = function(){
