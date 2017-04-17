@@ -1,4 +1,7 @@
 (function(window,$,undefined){
+	$.dataTypeColors = {
+		string:'#2ecc71',
+	}
 	//connector object
 	$.connector = function(obj){
 		obj.connections = new Array();
@@ -68,33 +71,51 @@
 			return connector.box;
 		}
 		connector.box = $('<div></div>')[0];
+		connector.box.lines = new Array();
 		connector.box.connector = connector;
-		connector.box.__proto__ = $.connectBox.fn
+		connector.box.__proto__ = $.connectBox.fn;
+		if(connector.box.color){
+			var color = connector.box.color;
+		}else{
+			var color = 'black';
+			if(connector.dataType in $.dataTypeColors){
+				color = $.dataTypeColors[connector.dataType];
+			}
+			connector.box.color = color;
+		}
 		$(connector.box).css({
 			width:5,
 			height:5,
 			borderStyle:'solid',
 			position:'absolute',
 			borderWidth:1,
-			borderColor:'black',
+			borderColor:color,
 		});
 		if(connector.box.type == 'output'){
 			$(connector.box).css({
-				borderColor:'transparent',
-				backgroundColor:'black',
+				borderColor:'white',
+				backgroundColor:color,
 			});
 		}else{//connector.box.type == 'input'
 			$(connector.box).css({
-				borderColor:'black',
-				backgroundColor:'transparent',
+				borderColor:color,
+				backgroundColor:'white',
 			});
 		}
 		return connector.box;
 	};
-	$.connectBox.fn = {
+	$.connectBox.fn = {};
+	$.connectBox.fn.remove = function(){
 		
 	};
 	$.connectLine = function(box1,box2){
+		//check if there is a line
+	};
+	$.connectLine.fn = {};
+	$.connectLine.fn.remove = function(){
+		
+	};
+	$.connectLine.fn.dataBullet = function(){
 		
 	};
 })(window,$)
