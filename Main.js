@@ -62,4 +62,32 @@
 		});
 		return this;
 	};
+	//box
+	$.connector.fn.box = function(){
+		if(this.boxElement){
+			return this.boxElement;
+		}else{
+			this.boxElement = $('<div></div>')[0];
+			$(this.boxElement).css({
+				width:5,
+				height:5,
+				borderStyle:'solid',
+				position:'absolute',
+				borderWidth:1,
+				borderColor:'black',
+			});
+			if(this.type == 'output'){
+				$(this.boxElement).css({
+					borderColor:'transparent',
+					backgroundColor:'black',
+				});
+			}else{//this.type == 'input'
+				$(this.boxElement).css({
+					borderColor:'black',
+					backgroundColor:'transparent',
+				});
+			}
+			return this.boxElement;
+		}
+	};
 })(window,$)
