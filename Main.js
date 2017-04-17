@@ -9,30 +9,36 @@
 	$.connector.fn = {};
 	$.connector.fn.isConnectedWith = function(otherConnector){
 		var checkconnection = false
-			$.each(this.connections,function(index,connection){
-				if(otherConnector === connection){
-					if(checkconnection){
-						//remove double connections
-						this.connections.splice(index, 1);
-					}else{
-						//set check true
-						checkconnection = true;
-					}
+		$.each(this.connections,function(index,connection){
+			if(otherConnector === connection){
+				if(checkconnection){
+					//remove double connections
+					this.connections.splice(index, 1);
+				}else{
+					//set check true
+					checkconnection = true;
 				}
-			});
+			}
+		});
+		return checkconnection;
 	};
 	//change the output of #output
-	$.connector.fn.edit = function(value){
-		this.value = value;
+	$.connector.fn.value = function(value){
+		if(value === undefined){
+			return this._value;	
+		}
+		this._value = value;
 		$.each(this.connections,function(index,connection){
 			connection.change(value);
 		});
+		return this;
 	};
 	//fired by #output
 	$.connector.fn.change = function(value){
 		if(this.element){
 			this.element.value = value;
 		}
+		return this;
 	};
 	//connect
 	$.connector.fn.connect = function(otherConnector){
@@ -40,6 +46,7 @@
 		this.isConnectedWith(otherConnector);
 		otherConnector.connections.push(this);
 		otherConnector.isConnectedWith(this);
+		return this;
 	};
 	//disconnect 
 	$.connector.fn.disconnect = function(otherConnector){
@@ -53,5 +60,6 @@
 				otherConnector.connections.splice(index, 1);
 			}
 		});
+		return this;
 	}
 })(window,$)
