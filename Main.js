@@ -54,5 +54,6 @@
 					otherobj.connections.splice(index, 1);
 				}
 			});
+		});
 	}
 })(window,$)
