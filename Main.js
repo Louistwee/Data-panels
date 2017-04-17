@@ -68,6 +68,7 @@
 			return this.boxElement;
 		}else{
 			this.boxElement = $('<div></div>')[0];
+			this.boxElement.connector = this;
 			$(this.boxElement).css({
 				width:5,
 				height:5,
