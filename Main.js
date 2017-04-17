@@ -23,11 +23,11 @@
 		return checkconnection;
 	};
 	//change the output of #output
-	$.connector.fn.value = function(value){
+	$.connector.fn.edit = function(value){
 		if(value === undefined){
-			return this._value;	
+			return this.value;	
 		}
-		this._value = value;
+		this.value = value;
 		$.each(this.connections,function(index,connection){
 			connection.change(value);
 		});
@@ -61,5 +61,5 @@
 			}
 		});
 		return this;
-	}
+	};
 })(window,$)
