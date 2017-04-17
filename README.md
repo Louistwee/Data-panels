@@ -3,7 +3,7 @@ A js library for data connect lines.
 
 ## To Do:
 
-- [ ] Create the Connection object.
+- [x] Create the Connection object.
 - [ ] Show a litle box.
   - [ ] Colors for diferent datatypes.
 - [ ] Show connection lines.
