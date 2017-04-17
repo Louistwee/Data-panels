@@ -7,13 +7,13 @@
 	};
 	//__proto__ functions
 	$.connector.fn = {};
-	$.connector.fn.isConnectedWith = function(connector){
+	$.connector.fn.isConnectedWith = function(otherConnector){
 		var checkconnection = false
-			$.each(obj.connections,function(index,connection){
-				if(otherobj === connection){
+			$.each(this.connections,function(index,connection){
+				if(otherConnector === connection){
 					if(checkconnection){
 						//remove double connections
-						obj.connections.splice(index, 1);
+						this.connections.splice(index, 1);
 					}else{
 						//set check true
 						checkconnection = true;
@@ -35,22 +35,22 @@
 		}
 	};
 	//connect
-	$.connector.fn.connect = function(otherobj){
-		this.connections.push(otherobj);
-		this.isConnectedWith(otherobj);
-		otherobj.connections.push(this);
-		otherobj.isConnectedWith(this);
+	$.connector.fn.connect = function(otherConnector){
+		this.connections.push(otherConnector);
+		this.isConnectedWith(otherConnector);
+		otherConnector.connections.push(this);
+		otherConnector.isConnectedWith(this);
 	};
 	//disconnect 
-	$.connector.fn.disconnect = function(otherobj){
+	$.connector.fn.disconnect = function(otherConnector){
 		$.each(this.connections,function(index,connection){
-			if(otherobj === connection){
+			if(otherConnector === connection){
 				this.connections.splice(index, 1);
 			}
 		});
-		$.each(otherobj.connections,function(index,connection){
+		$.each(otherConnector.connections,function(index,connection){
 			if(this === connection){
-				otherobj.connections.splice(index, 1);
+				otherConnector.connections.splice(index, 1);
 			}
 		});
 	}
