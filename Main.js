@@ -2,7 +2,6 @@
 	//connector object
 	$.connector = function(obj){
 		obj.connections = new Array();
-		if(obj.value === obj.blablabla)
 		obj.__proto__ = $.connector.fn;
 		return obj;
 	};
