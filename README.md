@@ -12,7 +12,7 @@ Look for open Issues
 
 ## Example
 
-Run this script in your console on a [jQuery supported page](http://jquery.com/):
+Run this script in your console on a jQuery supported page:
 
 ```javascript
 $.get('https://raw.githubusercontent.com/Louistwee/Connect/master/example.js',function(d){eval(d);})
