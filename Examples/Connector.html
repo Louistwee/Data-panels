@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../Files/Conector.js"></script>
+  </head>
+  <body>
+    <input id="output" value="Write Here">
+    <input id="input">
+    <script>
+      $(function(){
+        var output = $.connector({type:"output"});
+        var input = $.connector({type:"input"});
+      })
+    </script>
+  </body>
+</html>
