@@ -10,6 +10,10 @@ A jQuery library for data connect lines.
 
 Look for open Issues
 
-## examplepage
+## Example
 
-[examplepage]( data:text/html;charset=utf-8;base64,PGh0bWw+DQogIDxoZWFkPg0KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2NvZGUuanF1ZXJ5LmNvbS9qcXVlcnktMy4yLjEubWluLmpzIiB0eXBlPSJhcHBsaWNhdGlvbi9qYXZhc2NyaXB0Ij48L3NjcmlwdD4NCiAgICA8c2NyaXB0Pg0KICAgICAgJC5nZXQoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9Mb3Vpc3R3ZWUvQ29ubmVjdC9tYXN0ZXIvZXhhbXBsZS5qcycsZnVuY3Rpb24oZGF0YSl7DQogICAgICAgIGNvbnNvbGUubG9nKCdzdWNjZXMnKTsNCiAgICAgICAgZXZhbChkYXRhKTsNCiAgICAgIH0pLmZhaWwoZnVuY3Rpb24oKXsNCiAgICAgICAgY29uc29sZS5sb2coJ2ZhaWwnKTsNCiAgICAgIH0pOw0KICAgIDwvc2NyaXB0Pg0KICA8L2hlYWQ+DQo8L2h0bWw+)
+Run this script in your console on a [jQuery supported page](http://jquery.com/):
+
+```javascript
+$.get('https://raw.githubusercontent.com/Louistwee/Connect/master/example.js',function(d){eval(d);})
+```
