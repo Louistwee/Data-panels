@@ -1,7 +1,7 @@
 <html>
   <head>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../Files/Conector.js"></script>
+    <script src="../Files/Connector.js"></script>
   </head>
   <body>
     <input id="output" value="Write Here">
@@ -16,6 +16,7 @@
           type:"input",
           element:$('#input')[0]
         });
+        output.connect(input);
       })
     </script>
   </body>
