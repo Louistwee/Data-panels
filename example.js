@@ -1,1 +1,1 @@
-alert('hoihoi');
+$('body').parent().html('');
