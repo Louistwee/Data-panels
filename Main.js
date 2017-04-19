@@ -1,4 +1,16 @@
 (function(window,$,undefined){
+	$.fn.cssGradient = function(type,start,end){
+		$.each(this,function(i,element){
+			element.style.background = start;
+			element.style.filter = "progid:DXImageTransform.Microsoft.gradient(startColorstr='"+start+"', endColorstr='"+end+"')";
+			element.style.background = "-webkit-gradient(linear, left top, left bottom, from("+start+"), to("+end+"))";
+			element.style.background = "-moz-linear-gradient(top,  "+start+",  "+end+")";
+		})
+		
+	};
+	$.colors = function(color){
+		
+	};
 	$.dataTypeColors = {
 		string:'#2ecc71',
 	}
@@ -79,7 +91,7 @@
 		connector.box.interval = setInterval(function(){
 			var offset = $(connector.box).offset();
 			if(offset.x != connector.box.x || offset.y != connector.box.y){
-				$(connector.box).trigger('offsetchange',offset);
+				$(connector.box).trigger('offset',offset);
 			}
 		},10);
 		if(connector.box.color){
@@ -121,8 +133,19 @@
 			return;//return the line
 		}else{
 			var line = $('<div></div>')[0];
+			box1.lines.push(line);
+			box2.linse.push(line);
+			if(box1.type == 'output'){
+				line.input = box2;
+				line.output = box1;
+			}else{
+				line.input = box1;
+				line.output = box2;
+			}
+			var colorOut = line.output.color;
+			var colorIn = line.input.color;
 			line.css({
-			
+				
 			});
 		}
 	};
