@@ -1,0 +1,36 @@
+# $.Connector
+
+
+## Example
+
+### link
+
+https://louistwee.github.io/jQuery-Plugins/Examples/Connector.html
+
+### Code
+
+```html
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://louistwee.github.io/jQuery-Plugins/Files/Connector.js"></script>
+  </head>
+  <body>
+    <input id="output" value="Write Here">
+    <input id="input">
+    <script>
+      $(function(){
+        var output = $.connector({type:"output"});
+        $("#output").on('input',function(){
+          output.edit(this.value);
+        });
+        var input = $.connector({
+          type:"input",
+          element:$('#input')[0]
+        });
+        output.connect(input);
+      })
+    </script>
+  </body>
+</html>
+```
