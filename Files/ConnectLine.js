@@ -14,7 +14,7 @@ $.connectLine = function(box1,box2){
 		}
 		var colorOut = line.output.color;
 		var colorIn = line.input.color;
-		var updateline = function(Newoffset){
+		var updateLine = function(){
 			var x1 = line.output.x;
 			var y1 = line.output.y;
 			var x = line.input.x - x1;
@@ -30,7 +30,7 @@ $.connectLine = function(box1,box2){
 				'transform': 'rotate('+angle+'rad)',
 			});
 		};
-		$(line.input,line.output).on('offset',updateline);
+		$(line.input,line.output).on('offset',updateLine);
 		line.css({
 			background:line.output.color,
 			height:2,
