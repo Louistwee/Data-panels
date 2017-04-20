@@ -9,7 +9,7 @@ $.connectBox = function(connector){
 	connector.box.y = null;
 	connector.box.x = null;
 	connector.box.interval = setInterval(function(){
-		if (jQuery.contains(document, $foo[0])) {
+		if (jQuery.contains(document, connector.box)) {
 			var offset = $(connector.box).offset();
 			console.log(offset);
 			if(offset.x != connector.box.x || offset.y != connector.box.y){
