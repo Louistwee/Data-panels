@@ -9,14 +9,15 @@ $.connectBox = function(connector){
 	connector.box.y = null;
 	connector.box.x = null;
 	connector.box.interval = setInterval(function(){
-		if($(connector.box).is('html *')){
+		//if($(connector.box).is('html *')){
 			var offset = $(connector.box).offset();
+			console.log(offset);
 			if(offset.x != connector.box.x || offset.y != connector.box.y){
 				connector.box.x = offset.x;
 				connector.box.y = offset.y;
 				$(connector.box).trigger('offset',offset);
 			}
-		}
+		//}
 	},10);
 	if(connector.box.color){
 		var color = connector.box.color;
