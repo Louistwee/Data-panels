@@ -9,7 +9,7 @@ $.connectBox = function(connector){
 	connector.box.y = null;
 	connector.box.x = null;
 	connector.box.interval = setInterval(function(){
-		//if($(connector.box).is('html *')){
+		if (jQuery.contains(document, $foo[0])) {
 			var offset = $(connector.box).offset();
 			console.log(offset);
 			if(offset.x != connector.box.x || offset.y != connector.box.y){
@@ -17,7 +17,7 @@ $.connectBox = function(connector){
 				connector.box.y = offset.y;
 				$(connector.box).trigger('offset',offset);
 			}
-		//}
+		}
 	},10);
 	if(connector.box.color){
 		var color = connector.box.color;
