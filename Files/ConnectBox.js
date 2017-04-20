@@ -11,6 +11,8 @@ $.connectBox = function(connector){
 		connector.box.interval = setInterval(function(){
 			var offset = $(connector.box).offset();
 			if(offset.x != connector.box.x || offset.y != connector.box.y){
+				connector.box.x = offset.x;
+				connector.box.y = offset.y;
 				$(connector.box).trigger('offset',offset);
 			}
 		},10);
