@@ -42,8 +42,8 @@ $.connectLine.fn.update = function(){
 	var length = Math.sqrt(x*x+y*y);
 	$(this).css({
 		width:length,
-		left:x1,
-		top:y1,
+		left:x1 + 'px',
+		top:y1 + 'px',
 		'-ms-transform': 'rotate('+angle+'rad)', /* IE 9 */
 		'-webkit-transform': 'rotate('+angle+'rad)', /* Chrome, Safari, Opera */
 		'transform': 'rotate('+angle+'rad)',
