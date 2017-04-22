@@ -20,7 +20,7 @@ $.connectLine = function(box1,box2){
 		$(line.input).on('offset',function(){line.update()});
 		$(line).css({
 			backgroundColor:line.output.connector.color,
-			height:2,
+			height:3,
 			position:'absolute',
 		}).css({
 			background: '-webkit-gradient(linear, left top, right top, from('+line.output.connector.color+'), to('+line.input.connector.color+'))'
@@ -36,7 +36,16 @@ $.connectLine.fn.remove = function(){
 	
 };
 $.connectLine.fn.dataBullet = function(){
-	
+	this.append($('<div>').css({
+		width: 5,
+		height: 5,
+		background: this.output.connector.color,
+		position: 'absolute',
+		top: -1,
+		borderRadius: '50%',
+		transitionDuration: '2s',
+		left: 0,
+	}));
 };
 $.connectLine.fn.update = function(){
 	var	w = 7;
