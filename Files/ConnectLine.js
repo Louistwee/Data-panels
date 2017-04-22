@@ -20,7 +20,7 @@ $.connectLine = function(box1,box2){
 		$(line).css({
 			background:line.output.connector.color,
 			height:2,
-			position:'absolute';
+			position:'absolute',
 		});
 		line.update();
 		return line;
