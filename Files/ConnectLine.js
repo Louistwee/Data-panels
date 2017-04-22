@@ -34,10 +34,11 @@ $.connectLine.fn.dataBullet = function(){
 	
 };
 $.connectLine.fn.update = function(){
-	var 	x1 = this.output.x,
-		y1 = this.output.y,
-	 	x2 = this.input.x,
-		y2 = this.input.y;
+	var	w = 7;
+	var 	x1 = this.output.x + 7,
+		y1 = this.output.y + 7,
+	 	x2 = this.input.x + 7,
+		y2 = this.input.y + 7;
 	var 	a = x1 - x2,
         	b = y1 - y2,
         	length = Math.sqrt(a * a + b * b),
