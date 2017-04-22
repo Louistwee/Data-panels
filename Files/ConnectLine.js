@@ -22,7 +22,7 @@ $.connectLine = function(box1,box2){
 			height:2,
 			position:'absolute',
 		});
-		setTimeOut(function(){line.update},100);
+		setTimeout(function(){line.update},100);
 		return line;
 	}
 };
