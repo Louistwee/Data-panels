@@ -10,19 +10,19 @@
     <div id="inputDiv"><input id="input"></div>
     <script>
       $(function(){
-        var output = $.connector({type:"output"});
-        $("#output").on('input',function(){
-          output.edit(this.value);
-        });
         var input = $.connector({
           type:"input",
+          dataType:'string',
           element:$('#input')[0]
         });
-        output.connect(input);
-        var outputbox = $.connectBox(output);
-        var inputbox = $.connectBox(input);
-        $("#outputDiv").append(outputbox);
-        $("#inputDiv").append(inputbox);
+        var output = $.connector({
+          type:"output",
+          dataType:'object',
+        });
+        var inp = $.connectBox(input);
+        var out = $.connectBox(output);
+        $('#inputDiv').append(inp)
+        $('#outputDiv').append(out);
       })
     </script>
   </body>
