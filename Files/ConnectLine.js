@@ -44,14 +44,15 @@ $.connectLine.fn.dataBullet = function(){
 		position: 'absolute',
 		top: -1,
 		borderRadius: '50%',
-		transitionDuration: '2s',
 		left: 0,
 	}).animate({
 		left:'100%'
 	},{
 		duration:500,
 		done:function(){
-			d.remove();
+			console.log('done');
+			console.log(d);
+			//d.remove();
 		}
 	})[0]);
 };
