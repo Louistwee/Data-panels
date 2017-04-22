@@ -1,8 +1,4 @@
 $.fn.cssGradient = function(gradient){
-	$(this).css('background',gradient)
-		.css('background','-webkit-'+gradient)
-		.css('background','-moz-'+gradient)
-		.css('background','-ms-'+gradient)
-		.css('background','-o-'+gradient);
+	$(this).css('background','-webkit-'+gradient).css('background','-moz-'+gradient).css('background','-ms-'+gradient).css('background','-o-'+gradient).css('background',gradient);
 };
 //linear
