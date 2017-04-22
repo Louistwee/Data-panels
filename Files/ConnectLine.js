@@ -16,7 +16,8 @@ $.connectLine = function(box1,box2){
 			line.output = box2;
 		}
 		line.output.connector.connect(line.input.connector);
-		$(line.input,line.output).on('offset',function(){line.update()});
+		$(line.output).on('offset',function(){line.update()});
+		$(line.input).on('offset',function(){line.update()});
 		$(line).css({
 			background:line.output.connector.color,
 			height:2,
