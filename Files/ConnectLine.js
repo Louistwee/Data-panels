@@ -48,7 +48,7 @@ $.connectLine.fn.dataBullet = function(){
 	}).animate({
 		left:'100%'
 	},{
-		duration:500,
+		duration:5000,
 		done:function(){
 			console.log('done');
 			console.log(d);
