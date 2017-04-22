@@ -33,6 +33,11 @@ $.connector.fn.edit = function(value){
 	this.value = value;
 	$.each(this.connections,function(index,connection){
 		connection.change(value);
+		if(this.box){
+			if(this.box.lines[index]){
+				this.box.lines[index].dataBullet();
+			}
+		}
 	});
 	return this;
 };
