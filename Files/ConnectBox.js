@@ -12,7 +12,7 @@ $.connectBox = function(connector){
 	box.interval = setInterval(function(){
 		if ($('body').find(box).length > 0) {
 			var offset = $(box).offset();
-			if(offset.x != box.x || offset.y != box.y){
+			if(offset.left != box.x || offset.top != box.y){
 				box.x = offset.x;
 				box.y = offset.y;
 				$(box).trigger('offset',offset);
