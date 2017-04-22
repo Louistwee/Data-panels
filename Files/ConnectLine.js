@@ -3,6 +3,9 @@ $.connectLine = function(box1,box2){
 		return;//return the line
 	}else{
 		var line = document.body.appendChild(document.createElement('span'));
+		for(var i in $.connectLine.fn){
+			line[i] = $.connectLine.fn[i];
+		}
 		box1.lines.push(line);
 		box2.lines.push(line);
 		if(box1.type == 'output'){
@@ -13,34 +16,12 @@ $.connectLine = function(box1,box2){
 			line.output = box2;
 		}
 		line.output.connector.connect(line.input.connector);
-		var colorOut = line.output.color;
-		var colorIn = line.input.color;
-		var updateLine = function(){
-			var x1 = line.output.x;
-			var y1 = line.output.y;
-			var x = line.input.x - x1;
-			var y = line.input.y - y1;
-			var angle = Math.atan2(x, y);
-			var length = Math.sqrt(x*x+y*y);
-			$(line).css({
-				width:length,
-				left:x1,
-				top:y1,
-				'-ms-transform': 'rotate('+angle+'rad)', /* IE 9 */
-				'-webkit-transform': 'rotate('+angle+'rad)', /* Chrome, Safari, Opera */
-				'transform': 'rotate('+angle+'rad)',
-			});
-		};
-		$(line.input,line.output).on('offset',updateLine);
-		updateLine();
-		line.update = updateLine;
+		$(line.input,line.output).on('offset',function(){line.update()});
 		$(line).css({
-			background:line.output.color,
+			background:line.output.connector.color,
 			height:2,
 		});
-		for(var i in $.connectLine.fn){
-			line[i] = $.connectLine.fn[i];
-		}
+		this.update();
 		return line;
 	}
 };
@@ -50,4 +31,20 @@ $.connectLine.fn.remove = function(){
 };
 $.connectLine.fn.dataBullet = function(){
 	
+};
+$.connectLine.fn.update = function(){
+	var x1 = this.output.x;
+	var y1 = this.output.y;
+	var x = this.input.x - x1;
+	var y = this.input.y - y1;
+	var angle = Math.atan2(x, y);
+	var length = Math.sqrt(x*x+y*y);
+	$(this).css({
+		width:length,
+		left:x1,
+		top:y1,
+		'-ms-transform': 'rotate('+angle+'rad)', /* IE 9 */
+		'-webkit-transform': 'rotate('+angle+'rad)', /* Chrome, Safari, Opera */
+		'transform': 'rotate('+angle+'rad)',
+	});
 };
