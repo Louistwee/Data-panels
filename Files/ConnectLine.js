@@ -44,7 +44,7 @@ $.connectLine.fn.dataBullet = function(){
 		marginLeft:-5,
 		background: this.output.connector.color,
 		position: 'absolute',
-		top: -1,
+		top: -1.5,
 		borderRadius: '50%',
 		left: 0,
 	}).animate({
