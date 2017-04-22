@@ -40,6 +40,7 @@ $.connectLine.fn.dataBullet = function(){
 	$(this).append(d.css({
 		width: 7,
 		height: 7,
+		marginLeft:-7,
 		background: this.output.connector.color,
 		position: 'absolute',
 		top: -1,
