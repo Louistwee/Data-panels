@@ -1,5 +1,10 @@
 $.connector = function(obj){
 	obj.connections = new Array();
+	if(obj.element && obj.type == 'output'){
+		$(obj.element).on('input',function(){
+			obj.edit(this.value);
+		})
+	}
 	obj.__proto__ = $.connector.fn;
 	return obj;
 };
