@@ -22,6 +22,7 @@ $.connectLine = function(box1,box2){
 			backgroundColor:line.output.connector.color,
 			height:3,
 			position:'absolute',
+			borderRadius:'2px',
 		}).css({
 			background: '-webkit-gradient(linear, left top, right top, from('+line.output.connector.color+'), to('+line.input.connector.color+'))'
 		}).css({
@@ -40,7 +41,7 @@ $.connectLine.fn.dataBullet = function(){
 	$(this).append(d.css({
 		width: 7,
 		height: 7,
-		marginLeft:-7,
+		marginLeft:-5,
 		background: this.output.connector.color,
 		position: 'absolute',
 		top: -1,
