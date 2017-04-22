@@ -22,8 +22,11 @@ $.connectLine = function(box1,box2){
 			backgroundColor:line.output.connector.color,
 			height:2,
 			position:'absolute',
-		}).css({background: "-webkit-gradient(linear, left top, right top, from('+line.output.connector.color+'), to('+line.input.connector.color+'))"})
-		.css({background: "-moz-linear-gradient(left, '+line.output.connector.color+' 0%, '+line.input.connector.color+' 100%)"});
+		}).css({
+			background: '-webkit-gradient(linear, left top, right top, from('+line.output.connector.color+'), to('+line.input.connector.color+'))'
+		}).css({
+			background: '-moz-linear-gradient(left, '+line.output.connector.color+' 0%, '+line.input.connector.color+' 100%)'
+		});
 		line.update();
 		return line;
 	}
