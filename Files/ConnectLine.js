@@ -53,7 +53,8 @@ $.connectLine.fn.dataBullet = function(){
 		duration:1000,
 		done:function(){
 			d.remove();
-		}
+		},
+		easing:'linear',
 	})[0]);
 };
 $.connectLine.fn.update = function(){
