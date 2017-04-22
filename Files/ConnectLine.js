@@ -32,7 +32,7 @@ $.connectLine = function(box1,box2){
 			});
 		};
 		$(line.input,line.output).on('offset',updateLine);
-		line.css({
+		$(line).css({
 			background:line.output.color,
 			height:2,
 		});
