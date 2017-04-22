@@ -10,7 +10,7 @@ Look for open Issues
 
 ## Example
 
-[link](https://louistwee.github.io/jQuery-Plugins/Examples/ConnectBox.html)
+[link](https://louistwee.github.io/jQuery-Plugins/Examples/example.html)
 
 ```html
   <html>
