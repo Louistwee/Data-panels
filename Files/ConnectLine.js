@@ -36,7 +36,8 @@ $.connectLine.fn.remove = function(){
 	
 };
 $.connectLine.fn.dataBullet = function(){
-	this.append($('<div>').css({
+	var d = $('<div>');
+	this.append(d.css({
 		width: 5,
 		height: 5,
 		background: this.output.connector.color,
@@ -45,7 +46,14 @@ $.connectLine.fn.dataBullet = function(){
 		borderRadius: '50%',
 		transitionDuration: '2s',
 		left: 0,
-	}));
+	})).animate({
+		left:'100%'
+	},{
+		duration:500,
+		done:function(){
+			d.remove();
+		}
+	});
 };
 $.connectLine.fn.update = function(){
 	var	w = 7;
