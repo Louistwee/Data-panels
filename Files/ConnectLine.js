@@ -48,11 +48,9 @@ $.connectLine.fn.dataBullet = function(){
 	}).animate({
 		left:'100%'
 	},{
-		duration:5000,
+		duration:1000,
 		done:function(){
-			console.log('done');
-			console.log(d);
-			//d.remove();
+			d.remove();
 		}
 	})[0]);
 };
