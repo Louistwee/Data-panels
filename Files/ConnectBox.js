@@ -10,11 +10,11 @@ $.connectBox = function(connector){
 	box.y = null;
 	box.x = null;
 	box.interval = setInterval(function(){
-		if (jQuery.contains(document, box)) {
+		if ($('body').find(box).length > 0) {
 			var offset = $(box).offset();
-			if(offset.x != box.x || offset.y != box.y){
-				box.x = offset.x;
-				box.y = offset.y;
+			if(offset.left != box.x || offset.top != box.y){
+				box.x = offset.left;
+				box.y = offset.top;
 				$(box).trigger('offset',offset);
 			}
 		}
