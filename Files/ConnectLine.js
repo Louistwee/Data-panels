@@ -38,8 +38,8 @@ $.connectLine.fn.remove = function(){
 $.connectLine.fn.dataBullet = function(){
 	var d = $('<span>');
 	$(this).append(d.css({
-		width: 5,
-		height: 5,
+		width: 7,
+		height: 7,
 		background: this.output.connector.color,
 		position: 'absolute',
 		top: -1,
