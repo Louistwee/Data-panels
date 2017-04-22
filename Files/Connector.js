@@ -1,11 +1,11 @@
 $.connector = function(obj){
 	obj.connections = new Array();
+	obj.__proto__ = $.connector.fn;
 	if(obj.element && obj.type == 'output'){
 		$(obj.element).on('input',function(){
 			obj.edit(this.value);
 		})
 	}
-	obj.__proto__ = $.connector.fn;
 	return obj;
 };
 //__proto__ functions
