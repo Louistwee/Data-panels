@@ -12,6 +12,7 @@ $.connectLine = function(box1,box2){
 			line.input = box1;
 			line.output = box2;
 		}
+		line.output.connector.connect(line.input.connector);
 		var colorOut = line.output.color;
 		var colorIn = line.input.color;
 		var updateLine = function(){
