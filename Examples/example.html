@@ -26,11 +26,11 @@
         //ConnectBox
         var inp = $.connectBox(input);
         var out = $.connectBox(output);
-        $('#inputDiv').append(inp);
-        $('#outputDiv').append(out);
         //line - alt: fn.connect
         var line = $.connectLine(inp,out);
         line.update();
+        $('#inputDiv').append(inp);
+        $('#outputDiv').append(out);
       })
     </script>
   </body>
