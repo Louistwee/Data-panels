@@ -35,6 +35,9 @@ $.connectLine = function(box1,box2){
 			background:line.output.color,
 			height:2,
 		});
+		for(var i in $.connectLine.fn){
+			line[i] = $.connectLine.fn[i];
+		}
 	}
 };
 $.connectLine.fn = {};
