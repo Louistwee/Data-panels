@@ -4,7 +4,7 @@ $.connectLine = function(box1,box2){
 	}else{
 		var line = $('<div></div>')[0];
 		box1.lines.push(line);
-		box2.linse.push(line);
+		box2.lines.push(line);
 		if(box1.type == 'output'){
 			line.input = box2;
 			line.output = box1;
