@@ -2,7 +2,7 @@ $.connectLine = function(box1,box2){
 	if(false){//check if there is a line
 		return;//return the line
 	}else{
-		var line = $('<div></div>')[0];
+		var line = document.body.appendChild(document.createElement('span'));
 		box1.lines.push(line);
 		box2.lines.push(line);
 		if(box1.type == 'output'){
