@@ -14,7 +14,7 @@
         //Connector
         var output = $.connector({
           type:"output",
-          dataType:'object',
+          dataType:'number',
           element:$('#output')[0],
         });
         var input = $.connector({
@@ -25,7 +25,7 @@
         //ConnectBox
         var inp = $.connectBox(input);
         var out = $.connectBox(output);
-        $('#inputDiv').append(inp)
+        $('#inputDiv').append(inp);
         $('#outputDiv').append(out);
         //line - alt: fn.connect
         output.connect(input);
