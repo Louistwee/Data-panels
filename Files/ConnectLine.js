@@ -32,6 +32,8 @@ $.connectLine = function(box1,box2){
 			});
 		};
 		$(line.input,line.output).on('offset',updateLine);
+		updateLine();
+		line.update = updateLine;
 		$(line).css({
 			background:line.output.color,
 			height:2,
@@ -39,6 +41,7 @@ $.connectLine = function(box1,box2){
 		for(var i in $.connectLine.fn){
 			line[i] = $.connectLine.fn[i];
 		}
+		return line;
 	}
 };
 $.connectLine.fn = {};
