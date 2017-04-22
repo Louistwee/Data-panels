@@ -37,7 +37,7 @@ $.connectLine.fn.remove = function(){
 };
 $.connectLine.fn.dataBullet = function(){
 	var d = $('<span>');
-	this.append(d.css({
+	$(this).append(d.css({
 		width: 5,
 		height: 5,
 		background: this.output.connector.color,
