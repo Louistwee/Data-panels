@@ -19,10 +19,10 @@ $.connectLine = function(box1,box2){
 		$(line.output).on('offset',function(){line.update()});
 		$(line.input).on('offset',function(){line.update()});
 		$(line).css({
-			background:line.output.connector.color,
+			backgroundColor:line.output.connector.color,
 			height:2,
 			position:'absolute',
-		}).cssGradient('linear-gradient(to left, '+line.output.connector.color+', '+line.input.connector.color+');');
+		}).prefixCss('background-image','linear-gradient(to left, '+line.output.connector.color+', '+line.input.connector.color+');');
 		setTimeout(function(){line.update},100);
 		return line;
 	}
