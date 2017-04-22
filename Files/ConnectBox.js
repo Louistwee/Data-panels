@@ -1,55 +1,52 @@
+//improt $.connector
 $.connectBox = function(connector){
 	if(connector.box){
 		return connector.box;
 	}
-	connector.box = $('<div></div>')[0];
-	connector.box.lines = new Array();
-	connector.box.connector = connector;
-	connector.box.__proto__ = $.connectBox.fn;
-	connector.box.y = null;
-	connector.box.x = null;
-	connector.box.interval = setInterval(function(){
-		if (jQuery.contains(document, connector.box)) {
-			var offset = $(connector.box).offset();
-			console.log(offset);
-			if(offset.x != connector.box.x || offset.y != connector.box.y){
-				connector.box.x = offset.x;
-				connector.box.y = offset.y;
-				$(connector.box).trigger('offset',offset);
+	connector.box = document.createElement('span');
+	var box = connector.box;
+	box.lines = new Array();
+	box.connector = connector;
+	box.y = null;
+	box.x = null;
+	box.interval = setInterval(function(){
+		if (jQuery.contains(document, box)) {
+			var offset = $(box).offset();
+			if(offset.x != box.x || offset.y != box.y){
+				box.x = offset.x;
+				box.y = offset.y;
+				$(box).trigger('offset',offset);
 			}
 		}
 	},10);
-	if(connector.box.color){
-		var color = connector.box.color;
+	if(connector.color){
+		var color = connector.color;
 	}else{
 		var color = 'black';
-		//if(connector.dataType in $.dataTypeColors){
-		//	color = $.dataTypeColors[connector.dataType];
-		//}
-		connector.box.color = color;
+		if($.typeToColor){
+			if(connector.dataType in $.typeToColor){
+				color = $.typeToColor[connector.dataType];
+			}
+		};
+		connector.color = color;
 	}
-	$(connector.box).css({
-		width:5,
-		height:5,
+	$(box).css({
+		width:10,
+		height:10,
 		borderStyle:'solid',
 		position:'absolute',
-		borderWidth:1,
-		borderColor:color,
+		borderWidth:'2px',
 	});
-	if(connector.box.type == 'output'){
-		$(connector.box).css({
+	if(connector.type == 'output'){
+		$(box).css({
 			borderColor:'white',
 			backgroundColor:color,
 		});
-	}else{//connector.box.type == 'input'
-		$(connector.box).css({
+	}else{//connector.type == 'input'
+		$(box).css({
 			borderColor:color,
 			backgroundColor:'white',
 		});
 	}
-	return connector.box;
-};
-$.connectBox.fn = {};
-$.connectBox.fn.remove = function(){
-		
+	return box;
 };
