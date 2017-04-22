@@ -34,16 +34,22 @@ $.connectLine.fn.dataBullet = function(){
 	
 };
 $.connectLine.fn.update = function(){
-	var x1 = this.output.x;
-	var y1 = this.output.y;
-	var x = this.input.x - x1;
-	var y = this.input.y - y1;
-	var angle = Math.atan2(x, y);
-	var length = Math.sqrt(x*x+y*y);
+	var 	x1 = this.output.x,
+		y1 = this.output.y,
+	 	x2 = this.input.x,
+		y2 = this.input.y;
+	var 	a = x1 - x2,
+        	b = y1 - y2,
+        	length = Math.sqrt(a * a + b * b),
+		sx = (x1 + x2) / 2,
+        	sy = (y1 + y2) / 2;
+    	var 	x = sx - length / 2,
+        	y = sy,
+		angle = Math.PI - Math.atan2(-b, a);
 	$(this).css({
 		width:length,
-		left:x1 + 'px',
-		top:y1 + 'px',
+		left:x,
+		top:y,
 		'-ms-transform': 'rotate('+angle+'rad)', /* IE 9 */
 		'-webkit-transform': 'rotate('+angle+'rad)', /* Chrome, Safari, Opera */
 		'transform': 'rotate('+angle+'rad)',
