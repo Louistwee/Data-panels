@@ -20,7 +20,7 @@ $.connectBox = function(connector){
 			}
 		}
 	},10);
-	function(){};
+	//color
 	if(connector.color){
 		var color = connector.color;
 	}else{
@@ -32,15 +32,19 @@ $.connectBox = function(connector){
 		};
 		connector.color = color;
 	}
+	//css
 	$(box).css({
 		width:10,
 		height:10,
 		borderStyle:'solid',
 		position:'absolute',
 		borderWidth:'2px',
-	}).on('mousedown',function(){
+	}).on('mousedown',function(){//draw line
 		var pos = {
-			
+			mx:box.x,
+			my:box.y,
+			ex:box.x,
+			ey:box.y,
 		};
 		var line = document.body.appendChild(document.createElement('div'));
 		var updateline = function(x,y,mouse){
@@ -95,6 +99,7 @@ $.connectBox = function(connector){
 		$(document).on('mousemove',mousemovefn);
 		$(document).on('mouseup',mouseupfn);
 	});
+	//type
 	if(connector.type == 'output'){
 		$(box).css({
 			borderColor:'white',
