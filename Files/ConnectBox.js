@@ -5,6 +5,7 @@ $.connectBox = function(connector){
 	}
 	connector.box = document.createElement('span');
 	var box = connector.box;
+	box.isbox = true;
 	box.lines = new Array();
 	box.connector = connector;
 	box.y = null;
@@ -19,6 +20,7 @@ $.connectBox = function(connector){
 			}
 		}
 	},10);
+	function(){};
 	if(connector.color){
 		var color = connector.color;
 	}else{
@@ -36,6 +38,62 @@ $.connectBox = function(connector){
 		borderStyle:'solid',
 		position:'absolute',
 		borderWidth:'2px',
+	}).on('mousedown',function(){
+		var pos = {
+			
+		};
+		var line = document.body.appendChild(document.createElement('div'));
+		var updateline = function(x,y,mouse){
+			if(mouse){
+				pos.mx = x;
+				pos.my = y;
+			}else{
+				pos.ex = x;
+				pos.ey = y;
+			}
+			var	w = 7,
+				a = pos.mx - pos.ex,
+        			b = pos.my - pos.ey,
+        			length = Math.sqrt(a * a + b * b),
+				sx = (pos.mx + pos.ex) / 2,
+        			sy = (pos.my + pos.ey) / 2;
+    			var 	x = sx - length / 2,
+        			y = sy,
+				angle = Math.PI - Math.atan2(-b, a);
+			$(line).css({
+				width:length,
+				left:x,
+				top:y,
+				'-ms-transform': 'rotate('+angle+'rad)', /* IE 9 */
+				'-webkit-transform': 'rotate('+angle+'rad)', /* Chrome, Safari, Opera */
+				'transform': 'rotate('+angle+'rad)',
+			});
+		};
+		$(line).css({
+			backgroundColor:color,
+			height:3,
+			position:'absolute',
+			borderRadius:'2px',
+		});
+		var ofssetfn = function(o){
+			updateline(o.left,o.top,true);
+		};
+		var mousemovefn = function(e){
+			updateline(e.pageX,e.pageY,true);
+		};
+		var mouseupfn = function(e){
+			$(box).off('offset',ofssetfn);
+			$(document).off('mousemove',mousemovefn);
+			$(document).off('mouseup',mouseupfn);
+			$(line).remove();
+			var element = document.elementFromPoint(e.clientX, e.clientY);
+			if(element.isbox){
+				$.line(box,element);
+			}
+		};
+		$(box).on('offset',ofssetfn);
+		$(document).on('mousemove',mousemovefn);
+		$(document).on('mouseup',mouseupfn);
 	});
 	if(connector.type == 'output'){
 		$(box).css({
