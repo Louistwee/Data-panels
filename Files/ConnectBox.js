@@ -52,11 +52,11 @@ $.connectBox = function(connector){
 				pos.mx = x;
 				pos.my = y;
 			}else{
-				pos.ex = x;
-				pos.ey = y;
+				pos.ex = x + 7;
+				pos.ey = y + 7;
 			}
-			var	a = pos.mx - pos.ex + 7,
-        			b = pos.my - pos.ey + 7,
+			var	a = pos.mx - pos.ex,
+        			b = pos.my - pos.ey,
         			length = Math.sqrt(a * a + b * b),
 				sx = (pos.mx + pos.ex) / 2,
         			sy = (pos.my + pos.ey) / 2;
