@@ -92,7 +92,7 @@ $.connectBox = function(connector){
 			var element = document.elementFromPoint(e.clientX, e.clientY);
 			console.log(element);
 			if(element.isbox){
-				$.line(box,element);
+				$.connectLine(box,element);
 			}
 		};
 		$(box).on('offset',ofssetfn);
