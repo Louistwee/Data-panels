@@ -55,9 +55,8 @@ $.connectBox = function(connector){
 				pos.ex = x;
 				pos.ey = y;
 			}
-			var	w = 7,
-				a = pos.mx - pos.ex,
-        			b = pos.my - pos.ey,
+			var	a = pos.mx - pos.ex + 7,
+        			b = pos.my - pos.ey + 7,
         			length = Math.sqrt(a * a + b * b),
 				sx = (pos.mx + pos.ex) / 2,
         			sy = (pos.my + pos.ey) / 2;
@@ -91,6 +90,7 @@ $.connectBox = function(connector){
 			$(document).off('mouseup',mouseupfn);
 			$(line).remove();
 			var element = document.elementFromPoint(e.clientX, e.clientY);
+			console.log(element);
 			if(element.isbox){
 				$.line(box,element);
 			}
