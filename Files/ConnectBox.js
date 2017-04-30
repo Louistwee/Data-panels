@@ -39,12 +39,12 @@ $.connectBox = function(connector){
 		borderStyle:'solid',
 		position:'absolute',
 		borderWidth:'2px',
-	}).on('mousedown',function(){//draw line
+	}).on('mousedown',function(e){//draw line
 		var pos = {
-			mx:box.x,
-			my:box.y,
-			ex:box.x,
-			ey:box.y,
+			mx:e.pageX,
+			my:e.pageY,
+			ex:box.x + 7,
+			ey:box.y + 7,
 		};
 		var line = document.body.appendChild(document.createElement('div'));
 		var updateline = function(x,y,mouse){
