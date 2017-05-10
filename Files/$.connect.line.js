@@ -1,10 +1,10 @@
-$.connectLine = function(box1,box2){
+$.connect.line = function(box1,box2){
 	if(false){//check if there is a line
 		return;//return the line
 	}else{
 		var line = document.body.appendChild(document.createElement('div'));
-		for(var i in $.connectLine.fn){
-			line[i] = $.connectLine.fn[i];
+		for(var i in $.connect.line.fn){
+			line[i] = $.connect.line.fn[i];
 		}
 		box1.lines.push(line);
 		box2.lines.push(line);
@@ -32,11 +32,11 @@ $.connectLine = function(box1,box2){
 		return line;
 	}
 };
-$.connectLine.fn = {};
-$.connectLine.fn.remove = function(){
+$.connect.line.fn = {};
+$.connect.line.fn.remove = function(){
 	
 };
-$.connectLine.fn.dataBullet = function(){
+$.connect.line.fn.dataBullet = function(){
 	var d = $('<span>');
 	$(this).append(d.css({
 		width: 7,
@@ -57,7 +57,7 @@ $.connectLine.fn.dataBullet = function(){
 		easing:'linear',
 	})[0]);
 };
-$.connectLine.fn.update = function(){
+$.connect.line.fn.update = function(){
 	var	w = 7;
 	var 	x1 = this.output.x + 7,
 		y1 = this.output.y + 7,

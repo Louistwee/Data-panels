@@ -1,6 +1,6 @@
-$.connector = function(obj){
+$.connect = function(obj){
 	obj.connections = new Array();
-	obj.__proto__ = $.connector.fn;
+	obj.__proto__ = $.connect.fn;
 	if(obj.element && obj.type == 'output'){
 		$(obj.element).on('input',function(){
 			obj.edit(this.value);
@@ -9,8 +9,8 @@ $.connector = function(obj){
 	return obj;
 };
 //__proto__ functions
-$.connector.fn = {};
-$.connector.fn.isConnectedWith = function(otherConnector){
+$.connect.fn = {};
+$.connect.fn.isConnectedWith = function(otherConnector){
 	var checkconnection = false
 	$.each(this.connections,function(index,connection){
 		if(otherConnector === connection){
@@ -26,7 +26,7 @@ $.connector.fn.isConnectedWith = function(otherConnector){
 	return checkconnection;
 };
 //change the output of #output
-$.connector.fn.edit = function(value){
+$.connect.fn.edit = function(value){
 	if(value === undefined){
 		return this.value;	
 	}
@@ -42,14 +42,14 @@ $.connector.fn.edit = function(value){
 	return this;
 };
 //fired by #output
-$.connector.fn.change = function(value){
+$.connect.fn.change = function(value){
 	if(this.element){
 		this.element.value = value;
 	}
 	return this;
 };
 //connect
-$.connector.fn.connect = function(otherConnector){
+$.connect.fn.connect = function(otherConnector){
 	this.connections.push(otherConnector);
 	this.isConnectedWith(otherConnector);
 	otherConnector.connections.push(this);
@@ -57,7 +57,7 @@ $.connector.fn.connect = function(otherConnector){
 	return this;
 };
 //disconnect 
-$.connector.fn.disconnect = function(otherConnector){
+$.connect.fn.disconnect = function(otherConnector){
 	$.each(this.connections,function(index,connection){
 		if(otherConnector === connection){
 			this.connections.splice(index, 1);
