@@ -1,5 +1,5 @@
 //improt $.connector
-$.connectBox = function(connector){
+$.connect.box = function(connector){
 	if(connector.box){
 		return connector.box;
 	}
@@ -90,9 +90,8 @@ $.connectBox = function(connector){
 			$(document).off('mouseup',mouseupfn);
 			$(line).remove();
 			var element = document.elementFromPoint(e.clientX, e.clientY);
-			console.log(element);
 			if(element.isbox){
-				$.connectLine(box,element);
+				$.connect.line(element,box);
 			}
 		};
 		$(box).on('offset',ofssetfn);
