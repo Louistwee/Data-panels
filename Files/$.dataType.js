@@ -1,12 +1,26 @@
-/*$.dataType = function(settings,parent){
-  parent
-};
-
-stri = {
-  color:'red',
-  subtypes:{
-    
-  },  
+$.dataTypes = {
+	string:{
+		parent:'main',
+		color:'#2ecc71',
+	},
+	number:{
+		parent:'main',
+		color:'#3498db',
+	},
+	object:{
+		parent:'main',
+		color:'#e67e22',
+	},
+	array:{
+		parent:'main',
+		color:'#9b59b6',
+	},
+	JSONString:{
+		parent:'string',
+		color:'#27ae60',
+	},
+	JSONObject:{
+		parent:'string',
+		color:'#d35400',
+	},
 }
-
-*/
