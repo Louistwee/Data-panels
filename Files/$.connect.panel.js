@@ -12,6 +12,30 @@ $.connect.element = {};
 	type:'element',
 }*/
 $.connect.element.socket = {
+	resize:{
+		type:'block',
+	},
+	resize:[
+		{
+			type:'block',
+			width:400,
+			height:400,
+		},
+		{
+			type:'fluid',
+			minWidth: 500,
+			minHeight: 500,
+			maxWidth:1000,
+			maxHeight:1000,
+		},
+		{
+			type:'else',
+			then:'hide',
+		},
+	],
+	onResize:function(){
+	
+	},
 	inp:{
 		url:{
 			dataType:'string',
