@@ -1,41 +1,31 @@
-$.connect.element = function(name,panelsettings){
-	var panel = document.createElement('div');
-	var panelLeft = document.createElement('div');
-	var panelRight = document.createElement('div');
-	var panelCenter = document.createElement('div');
-}
-$.connect.element = {};
-/*$.connect.panel.textarea = {
-	create:function(settings){
+$.element = function(type,options){
+	var defaults = $.element[type];
+	var settings = $.extend( {}, defaults, options );
+	if(settings.type === 'hidden'){
+		//creates the element
+		var element = $('div');
+		element.css({
+			background:'white',
+			border:'1 px solid black',
+			
+		});
 		
-	},
-	type:'element',
-}*/
-$.connect.element.socket = {
-	resize:{
-		type:'block',
-	},
-	resize:[
-		{
-			type:'block',
-			width:400,
-			height:400,
-		},
-		{
-			type:'fluid',
-			minWidth: 500,
-			minHeight: 500,
-			maxWidth:1000,
-			maxHeight:1000,
-		},
-		{
-			type:'else',
-			then:'hide',
-		},
-	],
-	onResize:function(){
-	
-	},
+	};
+	//append the element to the body element (if it exist), return it or append it to an other element;
+	if(settings.parent === 'return'){
+		return element;
+	}else if(settings.parent){
+		$(settings.parent).append(element);
+	}else if(!document.body){
+		$(function(){
+			$('body').append(element);
+		});
+	}else{
+		$('body').append(element);
+	}
+	return element;
+}
+$.element.socket = {
 	inp:{
 		url:{
 			dataType:'string',
@@ -63,5 +53,7 @@ $.connect.element.socket = {
 		},
 		
 	},
+	info:'creates a websocket',
 	type:'hidden',
 }
+$.connect.element
