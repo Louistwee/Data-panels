@@ -5,11 +5,38 @@ $.element = function(type,options){
 		//creates the element
 		var element = $('div');
 		element.css({
-			background:'white',
-			border:'1 px solid black',
-			
+			boxShadow: '0px 0px 3px gray',
+			position: 'absolute',
+			width: 150,
+			resize: 'vertical',
+			overflowX: 'hidden',
+			overflowY: 'auto',
+			fontSize:20,
+			fontFamily:'arial',
 		});
-		
+		element.append($('div').css({
+			padding:5,
+			fontWeight:'bold',
+			textAlign: 'center';
+		}).text(type));
+		element.inp =  {};
+		for(var i in settings.inp){
+			var inp = $('div').css({padding:5}).text(i);
+			element.inp[i] = {
+				boxPlace:$('span');
+			}
+			inp.prepend(element.inp[i].boxPlace);
+			element.append(inp);
+		}
+		for(var i in settings.out){
+			$.connect({});
+			var out = $('div').css({padding:5,textAlign:'right'}).text(i);
+			element.out[i] = {
+				boxPlace:$('span');
+			}
+			inp.append(element.out[i].boxPlace);
+			element.append(out);
+		}
 	};
 	//append the element to the body element (if it exist), return it or append it to an other element;
 	if(settings.parent === 'return'){
@@ -30,25 +57,25 @@ $.element.socket = {
 		url:{
 			dataType:'string',
 			change:function(inp,element,self){
-				self.out.data.removeEvent(element.socket.onmessage);
-				element.socket.close();
+				if(element.socket) element.socket.close();
 				element.socket = new WebSocket(inp);
-				self.out.data.addEvent(element.socket.onmessage);
+				element.socket.onmessage = function(e){
+					element.out.data.edit(e.data);
+				}
 			},
+			value:'',
 		},
 		data:{
 			dataType:'string',
 			change:function(inp,element,self){
-				
+				//send data to server
 			},
+			value:'',
 		},
 	},
 	out:{
 		data:{
 			dataType:'string',
-			event:function(event,element,self){
-				return event.data;
-			},
 			value:'',
 		},
 		
