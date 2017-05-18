@@ -4,7 +4,7 @@ $.element = function(type,options){
 	var settings = $.extend(true,{}, defaults, options );
 	if(settings.type === 'hidden'){
 		//creates the element
-		var element = $('div');
+		var element = $('<div></div>');
 		element.css({
 			boxShadow: '0px 0px 3px gray',
 			position: 'absolute',
@@ -15,16 +15,16 @@ $.element = function(type,options){
 			fontSize:20,
 			fontFamily:'arial',
 		});
-		element.append($('div').css({
+		element.append($('<div></div>').css({
 			padding:5,
 			fontWeight:'bold',
 			textAlign: 'center',
 		}).text(type));
 		element.inp =  {};
 		for(var i in settings.inp){
-			var inp = $('div').css({padding:5}).text(i);
+			var inp = $('<div></div>').css({padding:5}).text(i);
 			element.inp[i] = {
-				boxPlace:$('span'),
+				boxPlace:$('<div></div>'),
 			}
 			inp.prepend(element.inp[i].boxPlace);
 			element.append(inp);
@@ -32,9 +32,9 @@ $.element = function(type,options){
 		element.out =  {};
 		for(var i in settings.out){
 			$.connect({});
-			var out = $('div').css({padding:5,textAlign:'right'}).text(i);
+			var out = $('<div></div>').css({padding:5,textAlign:'right'}).text(i);
 			element.out[i] = {
-				boxPlace:$('span'),
+				boxPlace:$('<div></div>'),
 			}
 			inp.append(element.out[i].boxPlace);
 			element.append(out);
