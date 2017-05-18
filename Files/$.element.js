@@ -1,4 +1,5 @@
 $.element = function(type,options){
+	if(!options) options = {};
 	var defaults = $.element[type];
 	var settings = $.extend(true,{}, defaults, options );
 	if(settings.type === 'hidden'){
