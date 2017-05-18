@@ -18,7 +18,7 @@ $.element = function(type,options){
 		element.append($('div').css({
 			padding:5,
 			fontWeight:'bold',
-			textAlign: 'center';
+			textAlign: 'center',
 		}).text(type));
 		element.inp =  {};
 		for(var i in settings.inp){
@@ -96,4 +96,3 @@ $.element.socket = {
 	info:'creates a websocket',
 	type:'hidden',
 }
-$.connect.element
