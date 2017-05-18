@@ -4,8 +4,8 @@ $.element = function(type,options){
 	var settings = $.extend(true,{}, defaults, options );
 	if(settings.type === 'hidden'){
 		//creates the element
-		var element = $('<div/>');
-		element.css({
+		var element = $('<div/>')[0];
+		$(element).css({
 			boxShadow: '0px 0px 3px gray',
 			position: 'absolute',
 			width: 150,
@@ -14,8 +14,7 @@ $.element = function(type,options){
 			overflowY: 'auto',
 			fontSize:20,
 			fontFamily:'arial',
-		});
-		element.append($('<div/>').css({
+		}).append($('<div/>').css({
 			padding:5,
 			fontWeight:'bold',
 			textAlign: 'center',
@@ -29,7 +28,7 @@ $.element = function(type,options){
 				boxPlace:$('<div/>')
 			}
 			inp.prepend(element.inp[i].boxPlace);
-			element.append(inp);
+			$(element).append(inp);
 		}
 		element.out =  {};
 		for(var i in settings.out){
@@ -39,7 +38,7 @@ $.element = function(type,options){
 				boxPlace:$('<div/>')
 			}
 			inp.append(element.out[i].boxPlace);
-			element.append(out);
+			$(element).append(out);
 		}
 	};
 	//add the boxes
