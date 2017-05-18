@@ -44,12 +44,12 @@ $.element = function(type,options){
 	$.extend(true,element.inp,{type:'inp'},settings.inp);
 	for(var i in element.inp){
 		$.connect(element.inp[i]);
-		$(element.inp[i].boxPlace).replace($.connect.box(element.inp[i]));
+		element.inp[i].boxPlace.replace($.connect.box(element.inp[i]));
 	}
 	$.extend(true,element.out,{type:'inp'},settings.out);
 	for(var i in element.out){
 		$.connect(element.out[i]);
-		$(element.out[i].boxPlace).replace($.connect.box(element.out[i]));
+		element.out[i].boxPlace.replace($.connect.box(element.out[i]));
 	}
 	//append the element to the body element (if it exist), return it or append it to an other element;
 	if(settings.parent === 'return'){
