@@ -25,11 +25,11 @@ $.connect.box = function(connector){
 		var color = connector.color;
 	}else{
 		var color = 'black';
-		if($.typeToColor){
-			if(connector.dataType in $.typeToColor){
-				color = $.typeToColor[connector.dataType];
+		if($.dataTypes){
+			if(connector.dataType in $.dataTypes){
+				color = $.dataTypes[connector.dataType].color;
 			}
-		};
+		}
 		connector.color = color;
 	}
 	//css
