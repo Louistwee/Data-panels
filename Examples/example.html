@@ -1,37 +1,37 @@
 <html>
-  <head>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../Files/Connector.js"></script>
-    <script src="../Files/ConnectBox.js"></script>
-    <script src="../Files/typeToColor.js"></script>
-    <script src="../Files/ConnectLine.js"></script>
-  </head>
-  <body>
-    <div id="outputDiv"><input id="output" value="1" placeholder="number" type="number"></div>
-    <br><br><br><br><br><br><br><br><br><br><br><br>
-    <div id="inputDiv"><input id="input"></div>
-    <script>
-      $(function(){
-        //Connector
-        var output = $.connector({
-          type:"output",
-          dataType:'number',
-          element:$('#output')[0],
-        });
-        var input = $.connector({
-          type:"input",
-          dataType:'string',
-          element:$('#input')[0],
-        });
-        //ConnectBox
-        var inp = $.connectBox(input);
-        var out = $.connectBox(output);
-        //line - alt: fn.connect
-        //The user can draw one
-       
-        $('#outputDiv').append(out);
-         $('#inputDiv').append(inp);
-      })
-    </script>
-  </body>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="../Files/$.connect.js"></script>
+		<script src="../Files/$.connect.box.js"></script>
+		<script src="../Files/$.connect.line.js"></script>
+		<script src="../Files/$.element.js"></script>
+		<script src="../Files/$.dataTypes.js"></script>
+	</head>
+	<body>
+		<div id="outputDiv"><input id="output" value="1" placeholder="number" type="number"></div>
+		<br><br><br><br><br><br><br><br><br><br><br><br>
+		<div id="inputDiv"><input id="input"></div>
+		<script>
+			$(function(){
+				//Connector
+				var output = $.connect({
+					type:"output",
+					dataType:'number',
+					element:$('#output')[0],
+				});
+				var input = $.connect({
+					type:"input",
+					dataType:'string',
+					element:$('#input')[0],
+				});
+				//ConnectBox
+				var inp = $.connect.box(input);
+				var out = $.connect.box(output);
+				//line - alt: fn.connect
+				//The user can draw one
+				$('#outputDiv').append(out);
+				$('#inputDiv').append(inp);
+			});
+		</script>
+	</body>
 </html>
