@@ -21,6 +21,8 @@ $.element = function(type,options){
 			textAlign: 'center',
 		}).text(type));
 		element.inp =  {};
+		console.log(element);
+		window.abc = element;
 		for(var i in settings.inp){
 			var inp = $('<div/>').css({padding:5}).text(i);
 			element.inp[i] = {
@@ -38,8 +40,6 @@ $.element = function(type,options){
 			}
 			inp.append(element.out[i].boxPlace);
 			element.append(out);
-			console.log(element);
-			window.abc = element;
 		}
 	};
 	//add the boxes
