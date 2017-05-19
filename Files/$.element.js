@@ -14,6 +14,10 @@ $.element = function(type,options){
 			overflowY: 'auto',
 			fontSize:20,
 			fontFamily:'arial',
+			'-webkit-user-select': none,
+			'-moz-user-select': none,
+			'-ms-user-select': none,
+			'user-select': none, 
 		}).append($('<div/>').css({
 			padding:5,
 			fontWeight:'bold',
@@ -23,7 +27,7 @@ $.element = function(type,options){
 		console.log(element);
 		window.abc = element;
 		for(var i in settings.inp){
-			var inp = $('<div/>').css({padding:5}).text(i);
+			var inp = $('<div/>').css({padding:5,marginLeft:10}).text(i);
 			element.inp[i] = {
 				boxPlace:$('<span/>')[0],
 			}
@@ -34,7 +38,7 @@ $.element = function(type,options){
 		element.out =  {};
 		for(var i in settings.out){
 			$.connect({});
-			var out = $('<div/>').css({padding:5,textAlign:'right'}).text(i);
+			var out = $('<div/>').css({padding:5,textAlign:'right',marginRight:10}).text(i);
 			element.out[i] = {
 				boxPlace:$('<span/>')[0],
 			}
