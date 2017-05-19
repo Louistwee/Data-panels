@@ -44,7 +44,7 @@ $.element = function(type,options){
 	};
 	//add the boxes
 	console.log('a');
-	$.extend(true,element.inp,{type:'inp'},settings.inp);
+	$.extend(true,element.inp,settings.inp);
 	for(var i in element.inp){
 		console.log('b');
 		$.connect(element.inp[i]);
@@ -52,7 +52,7 @@ $.element = function(type,options){
 		$(element.inp[i].boxPlace).replaceWith($.connect.box(element.inp[i]));
 		console.log('c');
 	}
-	$.extend(true,element.out,{type:'inp'},settings.out);
+	$.extend(true,element.out,settings.out);
 	console.log('d');
 	for(var i in element.out){
 		console.log('e');
