@@ -25,8 +25,9 @@ $.element = function(type,options){
 		for(var i in settings.inp){
 			var inp = $('<div/>').css({padding:5}).text(i);
 			element.inp[i] = {
-				boxPlace:$('<div/>')
+				boxPlace:$('<span/>')[0],
 			}
+			console.log(element.inp);
 			inp.prepend(element.inp[i].boxPlace);
 			$(element).append(inp);
 		}
@@ -35,9 +36,9 @@ $.element = function(type,options){
 			$.connect({});
 			var out = $('<div/>').css({padding:5,textAlign:'right'}).text(i);
 			element.out[i] = {
-				boxPlace:$('<div/>')
+				boxPlace:$('<span/>')[0],
 			}
-			inp.append(element.out[i].boxPlace);
+			out.append(element.out[i].boxPlace);
 			$(element).append(out);
 		}
 	};
@@ -45,12 +46,12 @@ $.element = function(type,options){
 	$.extend(true,element.inp,{type:'inp'},settings.inp);
 	for(var i in element.inp){
 		$.connect(element.inp[i]);
-		element.inp[i].boxPlace.replaceWith($.connect.box(element.inp[i]));
+		$(element.inp[i].boxPlace).replaceWith($.connect.box(element.inp[i]));
 	}
 	$.extend(true,element.out,{type:'inp'},settings.out);
 	for(var i in element.out){
 		$.connect(element.out[i]);
-		element.out[i].boxPlace.replaceWith($.connect.box(element.out[i]));
+		$(element.out[i].boxPlace).replaceWith($.connect.box(element.out[i]));
 	}
 	//append the element to the body element (if it exist), return it or append it to an other element;
 	if(settings.parent === 'return'){
