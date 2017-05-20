@@ -47,23 +47,17 @@ $.element = function(type,options){
 		}
 	};
 	//add the boxes
-	console.log('a');
 	$.extend(true,element.inp,settings.inp);
 	for(var i in element.inp){
-		console.log('b');
 		$.connect(element.inp[i]);
-		console.log('b2');
 		$(element.inp[i].boxPlace).replaceWith($.connect.box(element.inp[i]));
-		console.log('c');
+		element.inp[i].element = element;
 	}
 	$.extend(true,element.out,settings.out);
-	console.log('d');
 	for(var i in element.out){
-		console.log('e');
 		$.connect(element.out[i]);
-		console.log('f');
 		$(element.out[i].boxPlace).replaceWith($.connect.box(element.out[i]));
-		console.log('g');
+		element.out[i].element = element;
 	}
 	//append the element to the body element (if it exist), return it or append it to an other element;
 	if(settings.parent === 'return'){
@@ -84,6 +78,7 @@ $.element.socket = {
 		url:{
 			dataType:'string',
 			change:function(inp,element){
+				element = this.element;
 				if(element.socket) element.socket.close();
 				element.socket = new WebSocket(inp);
 				element.socket.onmessage = function(e){
