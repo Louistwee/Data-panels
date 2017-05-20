@@ -8,10 +8,20 @@
 		<script src="../Files/$.dataTypes.js"></script>
 	</head>
 	<body>
+		<style>
+			input{
+				width:300px;
+				font-size:20px;
+			}
+			p:{
+				font-family:arial;
+				font-size:20px;
+			}
+		</style>
 		<p>Draw lines to connect the socket</p>
-		<div id="URLDiv"><input id="URL" value="1" placeholder="URL"></div>
+		<div id="URLDiv"><input id="URL" value="1" placeholder="URL try: 'wss://echo.websocket.org'"></div>
 		<div id="datainDiv"><input id="datain" placeholder="data"></div>
-		<div id="dataoutDiv"><input id="dataout" placeholder="data"></div>
+		<div id="dataoutDiv"><input disabled id="dataout" placeholder="data"></div>
 		<script>
 			$(function(){
 				//Connector
