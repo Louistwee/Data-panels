@@ -2,7 +2,7 @@ $.element = function(type,options){
 	if(!options) options = {};
 	var defaults = $.element[type];
 	var settings = $.extend(true,{}, defaults, options );
-	if(settings.type === 'hidden'){
+	if(settings.type === 'panel'){
 		//creates the element
 		var element = $('<div/>')[0];
 		$(element).css({
@@ -18,7 +18,7 @@ $.element = function(type,options){
 			'-moz-user-select': 'none',
 			'-ms-user-select': 'none',
 			'user-select': 'none', 
-		}).append($('<div/>').css({
+		}).attr({title:element.title || ''}).append($('<div/>').css({
 			padding:5,
 			fontWeight:'bold',
 			textAlign: 'center',
@@ -103,5 +103,5 @@ $.element.socket = {
 		
 	},
 	info:'creates a websocket',
-	type:'hidden',
+	type:'panel',
 }
