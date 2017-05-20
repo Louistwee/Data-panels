@@ -45,14 +45,14 @@ $.connect.line.fn.remove = function(){
 	delete this;
 };
 $.connect.line.getLineBetween = function(box1,box2){
-	if(box1.type === 'output'){
-		if(box2.type === 'output'){
+	if(box1.connector.type === 'output'){
+		if(box2.connector.type === 'output'){
 			return 'sameType';
 		}else{
 			var output = box1;
 			var input = box2;
 		}
-	}else if(box2.type === 'output'){
+	}else if(box2.connector.type === 'output'){
 		var output = box2;
 		var input = box1;
 	}else{
