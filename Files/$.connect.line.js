@@ -37,6 +37,7 @@ $.connect.line = function(box1,box2){
 };
 $.connect.line.fn = {};
 $.connect.line.fn.remove = function(){
+	this.input.connector.disconnect(this.output.connector);
 	var index = this.input.lines.indexOf(this);
 	if (index > -1) {
 		this.input.lines.splice(index, 1);
