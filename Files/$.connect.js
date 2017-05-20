@@ -54,6 +54,11 @@ $.connect.fn.connect = function(otherConnector){
 	this.isConnectedWith(otherConnector);
 	otherConnector.connections.push(this);
 	otherConnector.isConnectedWith(this);
+	if(this.type === 'output'){
+		otherConnector.change(this.value);
+	}else{
+		this.change(otherConnector.value);
+	}
 	return this;
 };
 //disconnect 
