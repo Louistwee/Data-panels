@@ -1,5 +1,6 @@
 $.connect.line = function(box1,box2){
 	var answ = $.connect.line.getLineBetween(box1,box2);
+	console.log(answ);
 	if(answ === 'sameType'){
 		return;		// same type
 	}else if(answ.remove){
