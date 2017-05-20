@@ -8,29 +8,39 @@
 		<script src="../Files/$.dataTypes.js"></script>
 	</head>
 	<body>
-		<div id="outputDiv"><input id="output" value="1" placeholder="number" type="number"></div>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<div id="inputDiv"><input id="input"></div>
+		<p>Draw lines to connect the socket</p>
+		<div id="URLDiv"><input id="URL" value="1" placeholder="URL"></div>
+		<div id="datainDiv"><input id="datain" placeholder="data"></div>
+		<div id="dataoutDiv"><input id="dataout" placeholder="data"></div>
 		<script>
 			$(function(){
 				//Connector
-				var output = $.connect({
+				var URL = $.connect({
 					type:"output",
-					dataType:'number',
-					element:$('#output')[0],
+					dataType:'string',
+					element:$('#URL')[0],
 				});
-				var input = $.connect({
+				var datain = $.connect({
+					type:"output",
+					dataType:'string',
+					element:$('#datain')[0],
+				});
+				var dataout = $.connect({
 					type:"input",
 					dataType:'string',
-					element:$('#input')[0],
+					element:$('#dataout')[0],
 				});
 				//ConnectBox
-				var inp = $.connect.box(input);
-				var out = $.connect.box(output);
+				var URLd = $.connect.box(URL);
+				var dataind = $.connect.box(datain);
+				var dataoutd = $.connect.box(dataout);
 				//line - alt: fn.connect
-				//The user can draw one
-				$('#outputDiv').append(out);
-				$('#inputDiv').append(inp);
+				//The user can draw lines
+				$('#URLDiv').append(URLd);
+				$('#datainDiv').append(dataind);
+				$('#dataoutDiv').append(dataoutd);
+				//creates the socket
+				$.element('socket',{});
 			});
 		</script>
 	</body>
