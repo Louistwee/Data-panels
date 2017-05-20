@@ -11,6 +11,7 @@ $.element = function(type,options){
 			display:'inline-block',
 			width:150,
 			maxHeight: 300,
+			margin:10,
 			overflowX: 'hidden',
 			overflowY: 'auto',
 			fontSize:20,
@@ -51,12 +52,15 @@ $.element = function(type,options){
 	$.extend(true,element.inp,settings.inp);
 	for(var i in element.inp){
 		$.connect(element.inp[i]);
+		element.inp[i].type = 'input';
 		$(element.inp[i].boxPlace).replaceWith($.connect.box(element.inp[i]));
 		element.inp[i].element = element;
+		
 	}
 	$.extend(true,element.out,settings.out);
 	for(var i in element.out){
 		$.connect(element.out[i]);
+		element.out[i].type = 'output';
 		$(element.out[i].boxPlace).replaceWith($.connect.box(element.out[i]));
 		element.out[i].element = element;
 	}
