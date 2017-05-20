@@ -60,6 +60,7 @@ $.connect.line.getLineBetween = function(box1,box2){
 	}
 	var l = {output:output,input:input};
 	$.each(output.lines,function(index,line){
+		console.log(line);
 		if(line.input === input){
 			l = line;
 		}
