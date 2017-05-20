@@ -39,6 +39,10 @@ $.connect.box = function(connector){
 		borderStyle:'solid',
 		display: 'inline-block',
 		borderWidth:'2px',
+		'-webkit-user-select': 'none',
+		'-moz-user-select': 'none',
+		'-ms-user-select': 'none',
+		'user-select': 'none', 
 	}).on('mousedown',function(e){//draw line
 		var pos = {
 			mx:e.pageX,
