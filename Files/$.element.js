@@ -77,8 +77,8 @@ $.element.socket = {
 	inp:{
 		url:{
 			dataType:'string',
-			change:function(inp,element){
-				element = this.element;
+			change:function(inp){
+				var element = this.element;
 				if(element.socket) element.socket.close();
 				element.socket = new WebSocket(inp);
 				element.socket.onmessage = function(e){
@@ -89,7 +89,7 @@ $.element.socket = {
 		},
 		data:{
 			dataType:'string',
-			change:function(inp,element){
+			change:function(inp){
 				//send data to server
 			},
 			value:'',
