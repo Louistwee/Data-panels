@@ -22,6 +22,10 @@ $.connect.line = function(box1,box2){
 			height:3,
 			position:'absolute',
 			borderRadius:'2px',
+			'-webkit-user-select': 'none',
+			'-moz-user-select': 'none',
+			'-ms-user-select': 'none',
+			'user-select': 'none', 
 		}).css({
 			background: '-webkit-gradient(linear, left top, right top, from('+line.output.connector.color+'), to('+line.input.connector.color+'))'
 		}).css({
