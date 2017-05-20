@@ -37,7 +37,7 @@ $.connect.box = function(connector){
 		width:10,
 		height:10,
 		borderStyle:'solid',
-		position:'absolute',
+		display: 'inline-block',
 		borderWidth:'2px',
 	}).on('mousedown',function(e){//draw line
 		var pos = {
