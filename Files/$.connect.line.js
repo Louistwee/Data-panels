@@ -46,7 +46,7 @@ $.connect.line.fn.remove = function(){
 $.connect.line.getLineBetween = function(box1,box2){
 	if(box1.type === 'output'){
 		if(box2.type === 'output'){
-			retrun 'sameType';
+			return 'sameType';
 		}else{
 			var output = box1;
 			var input = box2;
@@ -55,7 +55,7 @@ $.connect.line.getLineBetween = function(box1,box2){
 		var output = box2;
 		var input = box1;
 	}else{
-		retrun 'sameType';
+		return 'sameType';
 	}
 	var l = {output:output,input:input};
 	$.each(output.lines,function(index,line){
