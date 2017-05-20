@@ -1,20 +1,18 @@
 $.connect.line = function(box1,box2){
-	if(false){//check if there is a line
-		return;//return the line
+	var answ = $.connect.line.getLineBetween(box1,box2);
+	if(answ === 'sameType'){
+		return;		// same type
+	}else if(answ.remove){
+		answ.remove();// remove line
 	}else{
-		var line = document.body.appendChild(document.createElement('div'));
+		var line = document.body.appendChild(document.createElement('div')); // no line
 		for(var i in $.connect.line.fn){
 			line[i] = $.connect.line.fn[i];
 		}
-		box1.lines.push(line);
-		box2.lines.push(line);
-		if(box1.type == 'output'){
-			line.input = box2;
-			line.output = box1;
-		}else{
-			line.input = box1;
-			line.output = box2;
-		}
+		line.input = answ.output;
+		line.output = answ.input;
+		line.input.lines.push(line);
+		line.output.lines.push(line);
 		line.output.connector.connect(line.input.connector);
 		$(line.output).on('offset',function(){line.update()});
 		$(line.input).on('offset',function(){line.update()});
@@ -34,7 +32,38 @@ $.connect.line = function(box1,box2){
 };
 $.connect.line.fn = {};
 $.connect.line.fn.remove = function(){
-	
+	var index = this.input.lines.indexOf(this);
+	if (index > -1) {
+		array.splice(index, 1);
+	}
+	var index = this.output.lines.indexOf(this);
+	if (index > -1) {
+		this.output.lines.splice(index, 1);
+	}
+	$(this).remove();
+	delete this;
+};
+$.connect.line.getLineBetween = function(box1,box2){
+	if(box1.type === 'output'){
+		if(box2.type === 'output'){
+			retrun 'sameType';
+		}else{
+			var output = box1;
+			var input = box2;
+		}
+	}else if(box2.type === 'output'){
+		var output = box2;
+		var input = box1;
+	}else{
+		retrun 'sameType';
+	}
+	var l = {output:output,input:input};
+	$.each(output.lines,function(index,line){
+		if(line.input === input){
+			l = line;
+		}
+	});
+	return l;
 };
 $.connect.line.fn.dataBullet = function(){
 	var d = $('<span>');
