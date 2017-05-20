@@ -95,7 +95,8 @@ $.element.socket = {
 		data:{
 			dataType:'string',
 			change:function(inp){
-				//send data to server
+				var element = this.element;
+				element.socket.send(inp);
 			},
 			value:'',
 		},
