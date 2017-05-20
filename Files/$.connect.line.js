@@ -5,13 +5,14 @@ $.connect.line = function(box1,box2){
 		return;		// same type
 	}else if(answ.remove){
 		answ.remove();// remove line
+		return;
 	}else{
 		var line = document.body.appendChild(document.createElement('div')); // no line
 		for(var i in $.connect.line.fn){
 			line[i] = $.connect.line.fn[i];
 		}
-		line.input = answ.output;
-		line.output = answ.input;
+		line.input = answ.input;
+		line.output = answ.output;
 		line.input.lines.push(line);
 		line.output.lines.push(line);
 		line.output.connector.connect(line.input.connector);
@@ -60,7 +61,8 @@ $.connect.line.getLineBetween = function(box1,box2){
 	}
 	var l = {output:output,input:input};
 	$.each(output.lines,function(index,line){
-		console.log(line);
+		console.log(line.input);
+		console.log(input);
 		if(line.input === input){
 			l = line;
 		}
