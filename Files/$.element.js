@@ -27,7 +27,7 @@ $.element = function(type,options){
 		console.log(element);
 		window.abc = element;
 		for(var i in settings.inp){
-			var inp = $('<div/>').css({padding:15}).text(i);
+			var inp = $('<div/>').css({padding:5}).text(i);
 			element.inp[i] = {
 				boxPlace:$('<span/>')[0],
 			}
@@ -38,7 +38,7 @@ $.element = function(type,options){
 		element.out =  {};
 		for(var i in settings.out){
 			$.connect({});
-			var out = $('<div/>').css({padding:15,textAlign:'right'}).text(i);
+			var out = $('<div/>').css({padding:5,textAlign:'right'}).text(i);
 			element.out[i] = {
 				boxPlace:$('<span/>')[0],
 			}
