@@ -7,9 +7,9 @@ $.element = function(type,options){
 		var element = $('<div/>')[0];
 		$(element).css({
 			boxShadow: '0px 0px 3px gray',
-			position: 'absolute',
-			width: 150,
-			resize: 'vertical',
+			position: 'relative',
+			display:'inline-block',
+			maxWidth: 300,
 			overflowX: 'hidden',
 			overflowY: 'auto',
 			fontSize:20,
