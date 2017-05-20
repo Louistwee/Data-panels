@@ -1,6 +1,5 @@
 $.connect.line = function(box1,box2){
 	var answ = $.connect.line.getLineBetween(box1,box2);
-	console.log(answ);
 	if(answ === 'sameType'){
 		return;		// same type
 	}else if(answ.remove){
@@ -36,7 +35,7 @@ $.connect.line.fn = {};
 $.connect.line.fn.remove = function(){
 	var index = this.input.lines.indexOf(this);
 	if (index > -1) {
-		array.splice(index, 1);
+		this.input.lines.splice(index, 1);
 	}
 	var index = this.output.lines.indexOf(this);
 	if (index > -1) {
@@ -61,8 +60,6 @@ $.connect.line.getLineBetween = function(box1,box2){
 	}
 	var l = {output:output,input:input};
 	$.each(output.lines,function(index,line){
-		console.log(line.input);
-		console.log(input);
 		if(line.input === input){
 			l = line;
 		}
