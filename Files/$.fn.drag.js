@@ -26,6 +26,8 @@ $.fn.drag = function(el){
 	};
 	if(el === 'remove'){
 		$(place).off(dragfn);
-	};
+		return this;
+	}
 	$(place).on(dragfn);
+	return this;
 }
