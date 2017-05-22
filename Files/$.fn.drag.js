@@ -14,9 +14,10 @@ $.fn.drag = function(el){
 	var dragfn = function(){
 		document.on({
 			mousemove:function(e){
+				var e = e.originalEvent;
 				el.css({
-					left:'+='+e.movementX,
-					top: '+='+e.movementy,
+					left:	'+=' + e.movementX,
+					top:	'+=' + e.movementy,
 				})
 			},
 			mouseup:function(){
