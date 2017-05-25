@@ -8,8 +8,8 @@ $.fn.drag = function(el){
 	}else if(el === 'remove'){
 		place = this;
 	}else{
-		var place = el;
-		var el = this;
+		var el = el;
+		var place = this;
 	}
 	var dragfn = function(){
 		$(document).on({
@@ -17,7 +17,7 @@ $.fn.drag = function(el){
 				var e = e.originalEvent;
 				$(el).css({
 					left:	'+=' + e.movementX,
-					top:	'+=' + e.movementy,
+					top:	'+=' + e.movementY,
 				})
 			},
 			mouseup:function(){
