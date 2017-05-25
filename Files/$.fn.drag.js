@@ -12,16 +12,16 @@ $.fn.drag = function(el){
 		var el = this;
 	}
 	var dragfn = function(){
-		document.on({
+		$(document).on({
 			mousemove:function(e){
 				var e = e.originalEvent;
-				el.css({
+				$(el).css({
 					left:	'+=' + e.movementX,
 					top:	'+=' + e.movementy,
 				})
 			},
 			mouseup:function(){
-				document.off(this);
+				$(document).off(this);
 			},
 		});
 	};
