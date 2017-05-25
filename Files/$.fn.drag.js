@@ -12,7 +12,7 @@ $.fn.drag = function(el){
 		var place = this;
 	}
 	var dragfn = function(){
-		$(document).on({
+		var dfn = {
 			mousemove:function(e){
 				var e = e.originalEvent;
 				$(el).css({
@@ -21,9 +21,10 @@ $.fn.drag = function(el){
 				})
 			},
 			mouseup:function(){
-				$(document).off(this);
+				$(document).off(dfn);
 			},
-		});
+		};
+		$(document).on(dfn);
 	};
 	if(el === 'remove'){
 		$(place).off(dragfn);
