@@ -29,6 +29,6 @@ $.fn.drag = function(el){
 		$(place).off(dragfn);
 		return this;
 	}
-	$(place).on(dragfn);
+	$(place).on('mousedown',dragfn);
 	return this;
 }
