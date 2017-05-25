@@ -7,6 +7,7 @@ $.element = function(type,options){
 		var element = $('<div/>')[0];
 		$(element).css({
 			boxShadow: '0px 0px 3px gray',
+			background:'white',
 			position: 'relative',
 			display:'inline-block',
 			width:150,
