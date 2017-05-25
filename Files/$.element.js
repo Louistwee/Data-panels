@@ -24,7 +24,7 @@ $.element = function(type,options){
 			padding:5,
 			fontWeight:'bold',
 			textAlign: 'center',
-		}).text(type));
+		}).text(type).drag(element));
 		element.inp =  {};
 		console.log(element);
 		window.abc = element;
