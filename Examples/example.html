@@ -14,7 +14,7 @@
 				width:300px;
 				font-size:20px;
 			}
-			p:{
+			p, button{
 				font-family:arial;
 				font-size:20px;
 			}
@@ -23,6 +23,12 @@
 		<div id="URLDiv"><input id="URL" value="1" placeholder="URL wss://echo.websocket.org"></div>
 		<div id="datainDiv"><input id="datain" placeholder="data"></div>
 		<div id="dataoutDiv"><input disabled id="dataout" placeholder="data"></div>
+		<p>
+			Panels
+			<button onclick="$(document.body).append($.element('socket'));">Add socket</button>
+			<button onclick="$(document.body).append($.element('parseJson'));">Add parseJson</button>
+			<button onclick="$(document.body).append($.element('console'));">Add console</button>
+		</p>
 		<script>
 			$(function(){
 				//Connector
@@ -51,7 +57,6 @@
 				$('#datainDiv').append(dataind);
 				$('#dataoutDiv').append(dataoutd);
 				//creates the socket
-				$(document.body).append($.element('socket'));
 			});
 		</script>
 	</body>
