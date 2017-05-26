@@ -1,57 +1,44 @@
 $.element = function(options){
-	var element = $('<div>')[0];
 	if(typeof options === 'string'){
 		var a = options;
 		options = {elementType:a};
 	}
 	if(!options.elementType in $.element){
 		return 'element not loaded';
-	}
-	$.extend(true,element, $.element[options.elementType], options);
-	element.create(element,options,$.element[options.elementType],options.elementType);
-	//add the boxes
-	for(var i in element.inp){
-		$.connect(element.inp[i]);
-		element.inp[i].type = 'input';
-		$(element.inp[i].boxPlace).replaceWith($.connect.box(element.inp[i]));
-		element.inp[i].element = element;
-		
-	}
-	for(var i in element.out){
-		$.connect(element.out[i]);
-		element.out[i].type = 'output';
-		$(element.out[i].boxPlace).replaceWith($.connect.box(element.out[i]));
-		element.out[i].element = element;
+	}else{
+		var element = $.element[options.elementType].create(options,options.elementType);
 	}
 	return element;
 }
 $.element.socket = {
-	create:function(){
-	
-	};
-	inp:{
+	create:function(options){
+		var settings = $.extend(true,$.extend(true,{},this,options));
+		var element = $.element.panel.create(settings);
+		return element;
+	},
+	input:{
 		url:{
 			dataType:'string',
-			change:function(inp){
+			change:function(input){
 				var element = this.element;
 				if(element.socket) element.socket.close();
-				element.socket = new WebSocket(inp);
+				element.socket = new WebSocket(input);
 				element.socket.onmessage = function(e){
-					element.out.data.edit(e.data);
+					element.output.data.edit(e.data);
 				}
 			},
 			value:'',
 		},
 		data:{
 			dataType:'string',
-			change:function(inp){
+			change:function(input){
 				var element = this.element;
-				element.socket.send(inp);
+				element.socket.send(input);
 			},
 			value:'',
 		},
 	},
-	out:{
+	output:{
 		data:{
 			dataType:'string',
 			value:'',
@@ -59,9 +46,16 @@ $.element.socket = {
 		
 	},
 	info:'creates a websocket',
+	elementType:'Socket',
 }
 $.element.panel = {
-	create:function(element){
+	info:'',
+	elementType:'Panel',
+	create:function(options){
+		var element = $('<div>')[0];
+		var settings = $.extend(true,$.extend(true,{},this,options));
+		$.extend(true,element,settings);
+		//css for the box
 		$(element).css({
 			boxShadow: '0px 0px 3px gray',
 			background:'white',
@@ -78,32 +72,30 @@ $.element.panel = {
 			'-moz-user-select': 'none',
 			'-ms-user-select': 'none',
 			'user-select': 'none', 
-		}).attr({title:element.title || ''}/*add a hover title*/).append($('<div/>').css({
+		}).attr({title:settings.info}/*add a hover title*/).append($('<div/>').css({
 			padding:5,
 			fontWeight:'bold',
 			textAlign: 'center',
-		}).text(type).drag(element));
-		element.inp =  {};
-		console.log(element);
-		window.abc = element;
-		for(var i in this.inp){
-			var inp = $('<div/>').css({padding:5}).text(i);
-			element.inp[i] = {
-				boxPlace:$('<span/>')[0],
-			}
-			console.log(element.inp);
-			inp.prepend(element.inp[i].boxPlace);
-			$(element).append(inp);
+		}).text(settings.elementType).drag(element));
+		for(var inputName in element.input){
+			var input = element.input[inputName];
+			input.element = element;
+			input.type = 'input';
+			$.connect(input);
+			input.div = $('<div/>').css({padding:5}).text(inputName);
+			var box = $.connect.box(input);
+			input.div.prepend(box);
+			$(element).append(input.div);
 		}
-		element.out =  {};
-		for(var i in this.out){
-			$.connect({});
-			var out = $('<div/>').css({padding:5,textAlign:'right'}).text(i);
-			element.out[i] = {
-				boxPlace:$('<span/>')[0],
-			}
-			out.append(element.out[i].boxPlace);
-			$(element).append(out);
+		for(var outputName in this.output){
+			var output = element.output[inputName];
+			output.element = element;
+			output.type = 'output';
+			$.connect(output);
+			output.div = $('<div/>').css({padding:5,textAlign:'right'}).text(outputName);
+			var box = $.connect.box(output);
+			output.div.append(box);
+			$(element).append(output.div);
 		}
-	};
+	},
 };
