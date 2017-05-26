@@ -87,7 +87,7 @@ $.element.panel = {
 			input.div.prepend(box);
 			$(element).append(input.div);
 		}
-		for(var outputName in this.output){
+		for(var outputName in element.output){
 			var output = element.output[outputName];
 			output.element = element;
 			output.type = 'output';
