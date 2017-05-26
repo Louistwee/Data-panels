@@ -111,7 +111,7 @@ $.element.parseJson = {
 			dataType:'string',
 			change:function(input){
 				var element = this.element;
-				element.output.data.edit(JSON.parse(input));
+				element.output.object.edit(JSON.parse(input));
 			},
 			value:'',
 		},
