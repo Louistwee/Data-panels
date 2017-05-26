@@ -21,13 +21,17 @@ $.element.textInput = {
 			'-moz-user-select': 'none',
 			'-ms-user-select': 'none',
 			'user-select': 'none', 
-		}).attr({title:settings.info}/*add a hover title*/).append($('<input/>').css({
+		}).attr({title:settings.info}/*add a hover title*/);
+		
+		var input = {
+			type:'output',
+		};
+		var inputElement = $('<input/>').css({
 			margin:5,
 			fontWeight:'bold',
 			textAlign: 'center',
-		}).attr('placeholder',settings.elementType).drag(element));
-    var inputElement = 
-    var box = $.connect.box(input);
+		}).attr('placeholder',settings.elementType).drag(element).on('input',function());
+		var box = $.connect.box(input);
     
 		for(var inputName in element.input){
 			var input = element.input[inputName];
