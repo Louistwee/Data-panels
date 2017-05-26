@@ -12,7 +12,7 @@ $.element = function(options){
 }
 $.element.socket = {
 	create:function(options){
-		var settings = $.extend(true,$.extend(true,{},this,options));
+		var settings = $.extend(true,{},this,options);
 		var element = $.element.panel.create(settings);
 		return element;
 	},
@@ -53,7 +53,7 @@ $.element.panel = {
 	elementType:'Panel',
 	create:function(options){
 		var element = $('<div>')[0];
-		var settings = $.extend(true,$.extend(true,{},this,options));
+		var settings = $.extend(true,{},this,options);
 		$.extend(true,element,settings);
 		//css for the box
 		$(element).css({
