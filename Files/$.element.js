@@ -88,7 +88,7 @@ $.element.panel = {
 			$(element).append(input.div);
 		}
 		for(var outputName in this.output){
-			var output = element.output[inputName];
+			var output = element.output[outputName];
 			output.element = element;
 			output.type = 'output';
 			$.connect(output);
