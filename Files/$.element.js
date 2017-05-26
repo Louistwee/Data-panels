@@ -47,7 +47,7 @@ $.element.socket = {
 	},
 	info:'creates a websocket',
 	elementType:'Socket',
-}
+};
 $.element.panel = {
 	info:'',
 	elementType:'Panel',
@@ -100,3 +100,48 @@ $.element.panel = {
 		return element;
 	},
 };
+$.element.parseJson = {
+	create:function(options){
+		var settings = $.extend(true,{},this,options);
+		var element = $.element.panel.create(settings);
+		return element;
+	},
+	input:{
+		string:{
+			dataType:'string',
+			change:function(input){
+				var element = this.element;
+				element.output.data.edit(JSON.parse(input));
+			},
+			value:'',
+		},
+	},
+	output:{
+		object:{
+			dataType:'object',
+			value:'',
+		},
+		
+	},
+	info:'parse JSONstring to an object',
+	elementType:'parseJSON',
+};
+$.element.console = {
+	create:function(options){
+		var settings = $.extend(true,{},this,options);
+		var element = $.element.panel.create(settings);
+		return element;
+	},
+	input:{
+		variable:{
+			dataType:'object',
+			change:function(input){
+				console.log(input);
+			},
+			value:'',
+		},
+	},
+	output:{},
+	info:'Logs an object in the console',
+	elementType:'console',
+}
