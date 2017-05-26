@@ -97,5 +97,6 @@ $.element.panel = {
 			output.div.append(box);
 			$(element).append(output.div);
 		}
+		return element;
 	},
 };
