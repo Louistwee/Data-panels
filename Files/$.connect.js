@@ -32,7 +32,11 @@ $.connect.fn.edit = function(value){
 	}
 	this.value = value;
 	$.each(this.connections,function(index,connection){
-		connection.change(value);
+		try{
+			connection.change(value);
+		}catch(error){
+			error;
+		}
 		if(this.box){
 			if(this.box.lines[index]){
 				this.box.lines[index].dataBullet();
