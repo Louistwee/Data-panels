@@ -25,6 +25,7 @@ $.fn.drag = function(el){
 			},
 		};
 		$(document).on(dfn);
+		$(el).parent().prepend(el);
 	};
 	if(el === 'remove'){
 		$(place).off(dragfn);
