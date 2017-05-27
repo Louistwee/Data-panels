@@ -5,6 +5,7 @@
 		<script src="../Files/$.connect.box.js"></script>
 		<script src="../Files/$.connect.line.js"></script>
 		<script src="../Files/$.element.js"></script>
+		<script src="../Files/$.element.textInput.js"></script>
 		<script src="../Files/$.dataTypes.js"></script>
 		<script src="../Files/$.fn.drag.js"></script>
 	</head>
@@ -19,15 +20,13 @@
 				font-size:20px;
 			}
 		</style>
-		<p>Draw lines to connect the socket</p>
-		<div id="URLDiv"><input id="URL" value="1" placeholder="URL wss://echo.websocket.org"></div>
-		<div id="datainDiv"><input id="datain" placeholder="data"></div>
-		<div id="dataoutDiv"><input disabled id="dataout" placeholder="data"></div>
+		<p>Draw lines to connect the socket (try: wss://echo.websocket.org)</p>
 		<p>
-			Panels
+			Panels: 
 			<button onclick="$(document.body).append($.element('socket'));">Add socket</button>
 			<button onclick="$(document.body).append($.element('parseJson'));">Add parseJson</button>
 			<button onclick="$(document.body).append($.element('console'));">Add console</button>
+			<button onclick="$(document.body).append($.element('textInput'));">Add textInput</button>
 		</p>
 		<script>
 			$(function(){
