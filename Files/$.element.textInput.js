@@ -1,4 +1,10 @@
 $.element.textInput = {
+	ouput:{
+		text:{
+			dataType:'string',
+			value:'',
+		},
+	},
 	elementType:'textInput',
 	create:function(options){
 		var element = $('<div>')[0];
@@ -21,38 +27,33 @@ $.element.textInput = {
 			'-moz-user-select': 'none',
 			'-ms-user-select': 'none',
 			'user-select': 'none', 
-		}).attr({title:settings.info}/*add a hover title*/);
-		
-		var input = {
-			type:'output',
-		};
-		var inputElement = $('<input/>').css({
-			margin:5,
+		}).attr({title:settings.info}/*add a hover title*/).append($('<div/>').css({
+			padding:5,
 			fontWeight:'bold',
 			textAlign: 'center',
-		}).attr('placeholder',settings.elementType).drag(element).on('input',function());
-		var box = $.connect.box(input);
-    
-		for(var inputName in element.input){
-			var input = element.input[inputName];
-			input.element = element;
-			input.type = 'input';
-			$.connect(input);
-			input.div = $('<div/>').css({padding:5}).text(inputName);
-			var box = ;
-			input.div.prepend(box);
-			$(element).append(input.div);
-		}
-		for(var outputName in element.output){
-			var output = element.output[outputName];
-			output.element = element;
-			output.type = 'output';
-			$.connect(output);
-			output.div = $('<div/>').css({padding:5,textAlign:'right'}).text(outputName);
-			var box = $.connect.box(output);
-			output.div.append(box);
-			$(element).append(output.div);
-		}
+		}).text(settings.elementType).drag(element));
+		var output = element.output['text'];
+		output.type = 'output';
+		$.connect(output);
+		$.extend(output,{
+			element:element,
+			div:$('<div/>').css({
+				padding:5,
+				textAlign:'right',
+			})[0],
+			inputBox:$('<input>').css({
+				border:0,
+				background:'white',
+				boxShadow:'0 0 2px gray inset',
+				fontSize:20,
+				fontFamily:'arial',
+			}).attr('type','text').on('input',function(){
+				this.edit($(this).attr('value'))
+			})[0],
+			box:$.connect.box(output),
+		},output);
+		$(output.div).append(output.inputBox).append(output.box);//input & box to div
+		$(element).append(output.div);//div to element
 		return element;
 	},
 };
