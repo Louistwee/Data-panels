@@ -1,5 +1,5 @@
 $.element.textInput = {
-	ouput:{
+	output:{
 		text:{
 			dataType:'string',
 			value:'',
