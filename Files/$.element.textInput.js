@@ -9,7 +9,7 @@ $.element.textInput = {
 	create:function(options){
 		var element = $('<div>')[0];
 		var settings = $.extend(true,{},this,options);
-		$.extend(true,element,options);
+		$.extend(true,element,settings);
 		//css for the box
 		$(element).css({
 			boxShadow: '0px 0px 3px gray',
