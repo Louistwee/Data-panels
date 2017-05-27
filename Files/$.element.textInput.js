@@ -47,8 +47,9 @@ $.element.textInput = {
 				boxShadow:'0 0 2px gray inset',
 				fontSize:20,
 				fontFamily:'arial',
+				width: '100%',
 			}).attr('type','text').on('input',function(){
-				this.edit($(this).attr('value'))
+				output.edit($(this).attr('value'))
 			})[0],
 			box:$.connect.box(output),
 		},output);
