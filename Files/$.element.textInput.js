@@ -10,10 +10,6 @@ $.element.textInput = {
 		var element = $('<div>')[0];
 		var settings = $.extend(true,{},this,options);
 		$.extend(true,element,settings);
-		console.log(this);
-		console.log(options);
-		console.log(settings);
-		console.log(element);
 		//css for the box
 		$(element).css({
 			boxShadow: '0px 0px 3px gray',
