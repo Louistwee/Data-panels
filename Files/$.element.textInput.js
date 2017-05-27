@@ -32,7 +32,7 @@ $.element.textInput = {
 			fontWeight:'bold',
 			textAlign: 'center',
 		}).text(settings.elementType).drag(element));
-		var output = element.output['text'];
+		var output = settings.output.text;
 		output.type = 'output';
 		$.connect(output);
 		$.extend(output,{
