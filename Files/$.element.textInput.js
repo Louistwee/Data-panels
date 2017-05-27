@@ -49,8 +49,7 @@ $.element.textInput = {
 				fontFamily:'arial',
 				width: '100%',
 			}).attr('type','text').on('input',function(){
-				console.log($(output.inputBox).attr('value'));
-				output.edit($(output.inputBox).attr('value'));
+				output.edit(output.inputBox.value);
 			})[0],
 			box:$.connect.box(output),
 		},output);
