@@ -10,6 +10,7 @@ $.element = function(options){
 	}
 	return element;
 }
+$.element.OpperationPannel = {};
 $.element.socket = {
 	create:function(options){
 		var settings = $.extend(true,{},this,options);
