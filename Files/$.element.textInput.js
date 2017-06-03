@@ -30,6 +30,10 @@ $.element.textInput = {
 			})[0],
 			box:$.connect.box(output),
 		},output);
+		$(output.box).css({
+				position:'relative',
+				left:5,
+			})
 		$(output.div).append(output.inputBox).append(output.box);//input & box to div
 		$(element).append(output.div);//div to element
 		return element;
