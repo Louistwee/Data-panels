@@ -7,31 +7,8 @@ $.element.textInput = {
 	},
 	elementType:'textInput',
 	create:function(options){
-		var element = $('<div>')[0];
 		var settings = $.extend(true,{},this,options);
-		$.extend(true,element,settings);
-		//css for the box
-		$(element).css({
-			boxShadow: '0px 0px 3px gray',
-			background:'white',
-			position: 'relative',
-			display:'inline-block',
-			width:150,
-			maxHeight: 300,
-			margin:10,
-			overflowX: 'hidden',
-			overflowY: 'auto',
-			fontSize:20,
-			fontFamily:'arial',
-			'-webkit-user-select': 'none',
-			'-moz-user-select': 'none',
-			'-ms-user-select': 'none',
-			'user-select': 'none', 
-		}).attr({title:settings.info}/*add a hover title*/).append($('<div/>').css({
-			padding:5,
-			fontWeight:'bold',
-			textAlign: 'center',
-		}).text(settings.elementType).drag(element));
+		var element = $.element.panel.create(settings);
 		var output = settings.output.text;
 		output.type = 'output';
 		$.connect(output);
