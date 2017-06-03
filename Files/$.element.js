@@ -58,7 +58,7 @@ $.element.opperationPannel = {
 			var box = $.connect.box(input);
 			$(box).css({
 				position:'relative',
-				left:-20,
+				left:-5,
 			})
 			input.div.prepend(box);
 			$(element).append(input.div);
@@ -70,6 +70,10 @@ $.element.opperationPannel = {
 			$.connect(output);
 			output.div = $('<div/>').css({padding:5,textAlign:'right'}).text(outputName);
 			var box = $.connect.box(output);
+			$(box).css({
+				position:'relative',
+				left:5,
+			})
 			output.div.append(box);
 			$(element).append(output.div);
 		}
