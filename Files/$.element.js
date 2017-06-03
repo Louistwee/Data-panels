@@ -21,7 +21,7 @@ $.element.panel = {
 		$(element).css({
 			boxShadow: '0px 0px 3px gray',
 			background:'white',
-			position: 'relative',
+			position: 'absolute',
 			display:'inline-block',
 			width:150,
 			maxHeight: 300,
