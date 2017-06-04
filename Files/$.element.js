@@ -179,12 +179,14 @@ $.element.localStorage = {
 			dataType:'string',
 			change:function(input){
 				localStorage.setItem(this.element.input.key.value, input);
+				console.log(this);
 			},
 			value:'',
 		},
 		key:{
 			dataType:'string',
 			change:function(input){
+				this.value = input;
 			},
 			value:'',
 		},
