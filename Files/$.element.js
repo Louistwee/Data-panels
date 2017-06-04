@@ -168,7 +168,7 @@ $.element.localStorage = {
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
 		$(window).on('storage',function(){
-			if(e.key = element.input.key.value){
+			if(e.key === element.input.key.value){
 				element.output.value.edit(e.newValue);
 			}
 		}
@@ -190,9 +190,8 @@ $.element.localStorage = {
 		},
 	},
 	output:{
-		value:{
-			
-		},
+		value:'',
+		type:'string'
 	},
 	info:'read/write localStorage',
 	elementType:'LocalStorage',
