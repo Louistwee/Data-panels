@@ -167,12 +167,12 @@ $.element.localStorage = {
 	create:function(options){
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
-		$(window).on('storage',function(){
+		window.onstorage = function(){
 		console.log(e.key+'==='+element.input.key.value+'-->'+e.newValue);
 			if(e.key === element.input.key.value){
 				element.output.value.edit(e.newValue);
 			}
-		});
+		};
 		return element;
 	},
 	input:{
