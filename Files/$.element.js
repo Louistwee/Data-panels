@@ -171,7 +171,7 @@ $.element.localStorage = {
 			if(e.key === element.input.key.value){
 				element.output.value.edit(e.newValue);
 			}
-		}
+		});
 		return element;
 	},
 	input:{
