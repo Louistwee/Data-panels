@@ -163,3 +163,37 @@ $.element.console = {
 	info:'Logs an object in the console',
 	elementType:'console',
 }
+$.element.localStorage = {
+	create:function(options){
+		var settings = $.extend(true,{},this,options);
+		var element = $.element.opperationPannel.create(settings);
+		$(window).on('storage',function(){
+			if(e.key = element.input.key.value){
+				element.output.value.edit(e.newValue);
+			}
+		}
+		return element;
+	},
+	input:{
+		value:{
+			dataType:'string',
+			change:function(input){
+				localStorage.setItem(this.element.input.key.value, input);
+			},
+			value:'',
+		},
+		key:{
+			dataType:'string',
+			change:function(input){
+			},
+			value:'',
+		},
+	},
+	output:{
+		value:{
+			
+		},
+	},
+	info:'read/write localStorage',
+	elementType:'LocalStorage',
+};
