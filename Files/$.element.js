@@ -190,8 +190,10 @@ $.element.localStorage = {
 		},
 	},
 	output:{
-		dataType:'string',
-		value:'',
+		value:{
+			dataType:'string',
+			value:'',
+		}
 	},
 	info:'read/write localStorage',
 	elementType:'LocalStorage',
