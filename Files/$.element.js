@@ -188,11 +188,12 @@ $.element.readStorage = {
 	create:function(options){
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
-		window.onstorage = function(){
+		$(window).on('storage',function(e){
+			console.log(e);
 			if(e.key === element.input.key.value){
 				element.output.value.edit(e.newValue);
 			}
-		};
+		});
 		return element;
 	},
 	input:{
