@@ -163,12 +163,32 @@ $.element.console = {
 	info:'Logs an object in the console',
 	elementType:'console',
 }
-$.element.localStorage = {
+$.element.setStorage = {
+	create:function(options){
+		var settings = $.extend(true,{},this,options);
+		var element = $.element.opperationPannel.create(settings);
+		return element;
+	},
+	input:{
+		object:{
+			dataType:'object',
+			change:function(input){
+				for(var i in input){
+					localStorage.setItem(i, input[i] + '');
+				}
+			},
+			value:'',
+		},
+	},
+	output:{},
+	info:'write localStorage',
+	elementType:'setStorage',
+};
+$.element.readStorage = {
 	create:function(options){
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
 		window.onstorage = function(){
-		console.log(e.key+'==='+element.input.key.value+'-->'+e.newValue);
 			if(e.key === element.input.key.value){
 				element.output.value.edit(e.newValue);
 			}
@@ -176,14 +196,6 @@ $.element.localStorage = {
 		return element;
 	},
 	input:{
-		value:{
-			dataType:'string',
-			change:function(input){
-				localStorage.setItem(this.element.input.key.value, input);
-				console.log(this);
-			},
-			value:'',
-		},
 		key:{
 			dataType:'string',
 			change:function(input){
@@ -198,6 +210,6 @@ $.element.localStorage = {
 			value:'',
 		}
 	},
-	info:'read/write localStorage',
-	elementType:'LocalStorage',
+	info:'read localStorage',
+	elementType:'readStorage',
 };
