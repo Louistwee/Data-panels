@@ -189,7 +189,7 @@ $.element.readStorage = {
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
 		$(window).on('storage',function(e){
-			console.log(e);
+			e = e.originalEvent;
 			if(e.key === element.input.key.value){
 				element.output.value.edit(e.newValue);
 			}
