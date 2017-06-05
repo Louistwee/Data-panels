@@ -21,42 +21,15 @@
 			}
 		</style>
 		<p>Draw lines to connect the socket (try: wss://echo.websocket.org)</p>
-		<p>
+		<p id="panels">
 			Panels: 
-			<button onclick="$(document.body).append($.element('socket'));">Add socket</button>
-			<button onclick="$(document.body).append($.element('parseJson'));">Add parseJson</button>
-			<button onclick="$(document.body).append($.element('console'));">Add console</button>
-			<button onclick="$(document.body).append($.element('textInput'));">Add textInput</button>
 		</p>
 		<script>
 			$(function(){
-				//Connector
-				var URL = $.connect({
-					type:"output",
-					dataType:'string',
-					element:$('#URL')[0],
-				});
-				var datain = $.connect({
-					type:"output",
-					dataType:'string',
-					element:$('#datain')[0],
-				});
-				var dataout = $.connect({
-					type:"input",
-					dataType:'string',
-					element:$('#dataout')[0],
-				});
-				//ConnectBox
-				var URLd = $.connect.box(URL);
-				var dataind = $.connect.box(datain);
-				var dataoutd = $.connect.box(dataout);
-				//line - alt: fn.connect
-				//The user can draw lines
-				$('#URLDiv').append(URLd);
-				$('#datainDiv').append(dataind);
-				$('#dataoutDiv').append(dataoutd);
-				//creates the socket
-			});
+				for(var i in $.element){
+					$('#panels').append('<button onclick="$(document.body).append($.element(\''+i+'\'));">Add '+i+'</button>')
+				}
+			})
 		</script>
 	</body>
 </html>
