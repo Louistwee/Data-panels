@@ -1,6 +1,6 @@
 # jQuery-Plugins
 
-## [Try it out](https://louistwee.github.io/jQuery-Plugins/Examples/example.html)
+## [Try it out](https://louistwee.github.io/Data-panels/Examples/example.html)
 
 ## Wiki
 
@@ -8,4 +8,4 @@
 
 ## Example
 
-[File](https://github.com/Louistwee/jQuery-Plugins/blob/master/Examples/example.html)
+[File](https://github.com/Louistwee/Data-panels/blob/master/Examples/example.html)
