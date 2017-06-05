@@ -125,7 +125,7 @@ $.element.parseJson = {
 		return element;
 	},
 	input:{
-		string:{
+		JSONstring:{
 			dataType:'string',
 			change:function(input){
 				var element = this.element;
