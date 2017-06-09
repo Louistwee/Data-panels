@@ -1,0 +1,3 @@
+$.masterPanel = function(){
+	
+}
