@@ -217,7 +217,7 @@ $.element.readStorage = {
 $.element.dropzone = {
 	elementType:"dropzone",
 	info:"",
-	create:function(){
+	create:function(options){
 		var element = $('<div>')[0];
 		var settings = $.extend(true,{},this,options);
 		$.extend(true,element,settings);
