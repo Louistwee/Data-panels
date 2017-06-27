@@ -214,3 +214,32 @@ $.element.readStorage = {
 	info:'read localStorage',
 	elementType:'readStorage',
 };
+$.element.dropzone = {
+	elementType:"dropzone",
+	create:function(){
+		var element = $('<div>')[0];
+		var settings = $.extend(true,{},this,options);
+		$.extend(true,element,settings);
+		$(element).css({
+			border:"5px dashed light-grey",
+			borderRadius:20,
+		});
+		return element;
+	},
+	output:{
+		thing:{
+			dataType:"object",
+			value:{},
+		}
+	},
+	input:{
+		inputTypes:{
+			dataType:"Array",
+			value:['*'],
+		},
+		/*style:{
+			dataType:"style",
+			value:{},
+		},*/
+	}
+};
