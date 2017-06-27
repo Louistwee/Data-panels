@@ -224,6 +224,7 @@ $.element.dropzone = {
 		$(element).css({
 			border:"5px dashed LightGray",
 			borderRadius:20,
+			height:200,
 		});
 		return element;
 	},
