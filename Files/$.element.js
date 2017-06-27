@@ -222,7 +222,7 @@ $.element.dropzone = {
 		var settings = $.extend(true,{},this,options);
 		$.extend(true,element,settings);
 		$(element).css({
-			border:"5px dashed light-grey",
+			border:"5px dashed LightGray",
 			borderRadius:20,
 		});
 		return element;
