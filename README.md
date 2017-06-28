@@ -1,8 +1,8 @@
 # Data-panels
 
 Data-panels is a tool for building websites/programs it makes use of elements and panels:
-- the elements show te data on the webpage.
-- the panels edit the data.
+- The elements show te data on the webpage.
+- The panels edit the data.
 
 You can see an example here:
 
