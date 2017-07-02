@@ -1,4 +1,4 @@
-$.connect.line = function(box1,box2){
+$.connect.line = function(box1,box2,destination){
 	var answ = $.connect.line.getLineBetween(box1,box2);
 	if(answ === 'sameType'){
 		return;		// same type
@@ -6,7 +6,10 @@ $.connect.line = function(box1,box2){
 		answ.remove();// remove line
 		return;
 	}else{
-		var line = document.body.appendChild(document.createElement('div')); // no line
+		//the element were the line need to bee added (default:body)
+		if(!destination)var destination = document.body;
+		//create a new line
+		var line = destination.appendChild(document.createElement('div')); // no line
 		for(var i in $.connect.line.fn){
 			line[i] = $.connect.line.fn[i];
 		}
