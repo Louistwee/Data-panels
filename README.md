@@ -26,7 +26,7 @@ This subject will be added soon...
 
 #### contributing
 
-If you have made or plan to make a change for this library then folow the steps in the contrubute file.
+If you have made or plan to make a change for this library then folow the steps in the contribute file.
 
 ### Requirements
 To run this program correctly you should have jQuery:
