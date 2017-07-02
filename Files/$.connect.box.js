@@ -1,15 +1,19 @@
-//improt $.connector
+//import $.connector
 $.connect.box = function(connector){
+	//check if here is already a box for this connector 
 	if(connector.box){
 		return connector.box;
 	}
+	//create the box
 	connector.box = document.createElement('span');
+	//add the box properties
 	var box = connector.box;
 	box.isbox = true;
 	box.lines = new Array();
 	box.connector = connector;
 	box.y = null;
 	box.x = null;
+	//box-interval for the offsetevent
 	box.interval = setInterval(function(){
 		if ($('body').find(box).length > 0) {
 			var offset = $(box).offset();
@@ -43,13 +47,15 @@ $.connect.box = function(connector){
 		'-moz-user-select': 'none',
 		'-ms-user-select': 'none',
 		'user-select': 'none', 
-	}).on('mousedown',function(e){//draw line
+	}).on('mousedown',function(e){
+		//draw line
 		var pos = {
 			mx:e.pageX,
 			my:e.pageY,
 			ex:box.x + 7,
 			ey:box.y + 7,
 		};
+		// create the 'fake' line
 		var line = document.body.appendChild(document.createElement('div'));
 		var updateline = function(x,y,mouse){
 			if(mouse){
@@ -102,6 +108,7 @@ $.connect.box = function(connector){
 		$(document).on('mousemove',mousemovefn);
 		$(document).on('mouseup',mouseupfn);
 	});
+	// end of line
 	//type
 	if(connector.type == 'output'){
 		$(box).css({
