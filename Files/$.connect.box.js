@@ -101,7 +101,11 @@ $.connect.box = function(connector){
 			$(line).remove();
 			var element = document.elementFromPoint(e.clientX, e.clientY);
 			if(element.isbox){
-				$.connect.line(element,box);
+				if(box.des){
+					$.connect.line(element,box,box.des);
+				}else{
+					$.connect.line(element,box);
+				}
 			}
 		};
 		$(box).on('offset',ofssetfn);
