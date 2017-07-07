@@ -286,6 +286,7 @@ $.element.snow = {
 				width:d,
 				height:d,
 				borderRadius:'50%',
+				transitionDuration:'1s',
 			});
 			$('body').append(snowflake);
 			snowflake.animate({
