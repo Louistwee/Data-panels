@@ -271,31 +271,48 @@ $.element.dropableElement = {
 	output:{},
 	input:{}
 };
+$.element.snowflake = {
+	create:function(options){
+		var settings = $.extend(true,{},this,options);
+		var element = $('<div></div>')[0].extend(settings);
+		var d = Math.random()*5+10;
+		$(element).css({
+			backgroundColor:'white',
+			boxShadow:'0 0 2px gray',
+			position:'fixed',
+			top:-10,
+			left:Math.random()*100+'%',
+			width:d,
+			height:d,
+			borderRadius:'50%',
+		});
+		return element;
+	},
+	goTop:function(){
+		var element = this;
+		$(element).css('top',0);
+		element.fallDown();
+	},
+	fallDown:function(){
+		var element = this;
+		$(element).animate({
+			top:window.screen.height,
+		},{
+			duration:20000,
+			done:function(){
+				element.gotTop();
+			}
+		});
+	},
+	
+};
 $.element.snow = {
 	create:function(options){
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
-		element.interval = window.setInterval(function(){
-			var d = Math.random()*5+10;
-			var snowflake = $('<div></div>').css({
-				backgroundColor:'white',
-				boxShadow:'0 0 2px gray',
-				position:'fixed',
-				top:-10,
-				left:Math.random()*100+'%',
-				width:d,
-				height:d,
-				borderRadius:'50%',
-				transitionDuration:'20s',
-			});
-			$('body').append(snowflake);
-			window.setTimeout(function(){
-				snowflake.css('top',window.screen.height);
-			},100);
-			window.setTimeout(function(){
-				snowflake.remove();
-			},20000);
-		},100);
+		for (i = 0; i < 30; i++) {
+			$('body').append($.element.snowflake.create());
+		}
 		return element;
 	},
 	input:{
