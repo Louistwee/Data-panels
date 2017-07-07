@@ -286,7 +286,7 @@ $.element.snow = {
 				width:d,
 				height:d,
 				borderRadius:'50%',
-				transitionDuration:element.speed.value+'s',
+				transitionDuration:element.input.speed.value+'s',
 			});
 			$('body').append(snowflake);
 			snowflake.css('top','110%');
