@@ -271,3 +271,50 @@ $.element.dropableElement = {
 	output:{},
 	input:{}
 };
+$.elment.snow = {
+	create:function(options){
+		var settings = $.extend(true,{},this,options);
+		var element = $.element.opperationPannel.create(settings);
+		element.interval = window.setInterval(function(){
+			var d = math.rand()*5+10;
+			var snowflake = $('<div></div>').css({
+				backgroundColor:'white',
+				boxShadow:'0 0 2px solid gray',
+				position:'fixed',
+				top:0,
+				left:Math.rand()*100+'%',
+				width:d,
+				height:d,
+				borderRadius:'50%',
+			});
+			$('body').append(snowflake);
+		},100);
+		return element;
+	},
+	input:{
+		/*Colors:{
+			dataType:'Array',
+			change:function(input){
+				this.value = input;
+			},
+			value:['#fffff','#e1e1e1','#f5f5f5'],
+		},*/
+		count:{
+			dataType:'number',
+			change:function(input){
+				this.value = input;
+			},
+			value:0.1,
+		},
+		speed:{
+			dataType:'number',
+			change:function(input){
+				this.value = input;
+			},
+			value:1,
+		},
+	},
+	output:{},
+	info:'add snow to a webpage',
+	elementType:'snow',
+}
