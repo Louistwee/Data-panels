@@ -281,7 +281,7 @@ $.element.snow = {
 				backgroundColor:'white',
 				boxShadow:'0 0 2px gray',
 				position:'fixed',
-				top:'-10%',
+				top:-10,
 				left:Math.random()*100+'%',
 				width:d,
 				height:d,
@@ -289,7 +289,7 @@ $.element.snow = {
 				transitionDuration:element.input.speed.value+'s',
 			});
 			$('body').append(snowflake);
-			snowflake.css('top','110%');
+			snowflake.animate({'top':window.screen.height},{complete:function(){snowflake.remove()}});
 		},100);
 		return element;
 	},
