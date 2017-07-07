@@ -297,7 +297,7 @@ $.element.snowflake = {
 	fallDown:function(){
 		var element = this;
 		$(element).animate({
-			top:window.screen.height,
+			top:$(window).height(),
 		},{
 			duration:20000,
 			done:function(){
