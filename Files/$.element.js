@@ -271,7 +271,7 @@ $.element.dropableElement = {
 	output:{},
 	input:{}
 };
-$.elment.snow = {
+$.element.snow = {
 	create:function(options){
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
