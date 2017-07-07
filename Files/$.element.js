@@ -286,11 +286,12 @@ $.element.snowflake = {
 			height:d,
 			borderRadius:'50%',
 		});
+		element.fallDown();
 		return element;
 	},
 	goTop:function(){
 		var element = this;
-		$(element).css('top',0);
+		$(element).css('top',-10);
 		element.fallDown();
 	},
 	fallDown:function(){
