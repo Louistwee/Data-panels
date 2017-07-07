@@ -286,10 +286,14 @@ $.element.snow = {
 				width:d,
 				height:d,
 				borderRadius:'50%',
-				transitionDuration:element.input.speed.value+'s',
 			});
 			$('body').append(snowflake);
-			snowflake.animate({'top':window.screen.height},{complete:function(){snowflake.remove()}});
+			snowflake.animate({
+				top:window.screen.height
+			},{
+				complete:function(){snowflake.remove()},
+				duration:element.input.speed.value,
+			});
 		},100);
 		return element;
 	},
@@ -313,7 +317,7 @@ $.element.snow = {
 			change:function(input){
 				this.value = input;
 			},
-			value:20,
+			value:20000,
 		},
 	},
 	output:{},
