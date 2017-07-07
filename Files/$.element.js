@@ -302,7 +302,8 @@ $.element.snowflake = {
 			duration:20000,
 			done:function(){
 				element.goTop();
-			}
+			},
+			easing:'linear',
 		});
 	},
 	
