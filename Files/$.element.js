@@ -276,7 +276,7 @@ $.element.snow = {
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
 		element.interval = window.setInterval(function(){
-			var d = math.rand()*5+10;
+			var d = Math.rand()*5+10;
 			var snowflake = $('<div></div>').css({
 				backgroundColor:'white',
 				boxShadow:'0 0 2px solid gray',
