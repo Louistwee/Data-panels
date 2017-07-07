@@ -245,3 +245,29 @@ $.element.dropzone = {
 		},*/
 	}
 };
+$.element.dropableElement = {
+	elementType:"dropableElement",
+	info:"element used to drop in /dropzones/",
+	create:function(options){
+		var element = $('<div>')[0];
+		var settings = $.extend(true,{},this,options);
+		$.extend(true,element,settings);
+		$(element).css({
+			width:100%,
+		});
+		element.moveStart = function(){
+			//<TO_DO>
+			//get offset position
+			//append to <HTML>
+			//set position fixed
+			//add onmouseMove event to body (see $.drag)
+			//add onmouseUp event to body (see $.drag)
+				//remove al events
+				//append to underlying element
+			//</TO_DO>
+		};
+		return element;
+	},
+	output:{},
+	input:{}
+};
