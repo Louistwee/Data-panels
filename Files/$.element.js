@@ -303,7 +303,6 @@ $.element.snowflake = {
 			done:function(){
 				element.goTop();
 			},
-			easing:'linear',
 		});
 	},
 	
