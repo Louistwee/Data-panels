@@ -299,7 +299,7 @@ $.element.snowflake = {
 		$(element).animate({
 			top:$(window).height(),
 		},{
-			duration:20000,
+			duration:5000,
 			done:function(){
 				element.goTop();
 			},
