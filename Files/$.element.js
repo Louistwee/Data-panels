@@ -253,7 +253,7 @@ $.element.dropableElement = {
 		var settings = $.extend(true,{},this,options);
 		$.extend(true,element,settings);
 		$(element).css({
-			width:100%,
+			width:'100%',
 		});
 		element.moveStart = function(){
 			//<TO_DO>
