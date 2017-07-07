@@ -280,7 +280,7 @@ $.element.snowflake = {
 			backgroundColor:'white',
 			boxShadow:'0 0 2px gray',
 			position:'fixed',
-			top:-10,
+			top:'0%',
 			left:Math.random()*100+'%',
 			width:d,
 			height:d,
@@ -291,13 +291,13 @@ $.element.snowflake = {
 	},
 	goTop:function(){
 		var element = this;
-		$(element).css('top',-10);
+		$(element).css('top','0%');
 		element.fallDown();
 	},
 	fallDown:function(){
 		var element = this;
 		$(element).animate({
-			top:$(window).height(),
+			top:'100%',
 		},{
 			duration:5000,
 			done:function(){
