@@ -311,8 +311,9 @@ $.element.snow = {
 	create:function(options){
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
-		for (i = 0; i < 30; i++) {
-			$('body').append($.element.snowflake.create());
+		var c = 30;
+		for (var i = 0; i < c; i++) {
+			window.setTimeout(function(){$('body').append($.element.snowflake.create());},i*Math.random()*20000/c)
 		}
 		return element;
 	},
