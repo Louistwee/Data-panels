@@ -274,7 +274,7 @@ $.element.dropableElement = {
 $.element.snowflake = {
 	create:function(options){
 		var settings = $.extend(true,{},this,options);
-		var element = $('<div></div>')[0].extend(settings);
+		var element = $.extend(true,$('<div></div>')[0],settings);
 		var d = Math.random()*5+10;
 		$(element).css({
 			backgroundColor:'white',
