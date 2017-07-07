@@ -286,15 +286,15 @@ $.element.snow = {
 				width:d,
 				height:d,
 				borderRadius:'50%',
-				transitionDuration:'1s',
+				transitionDuration:'20s',
 			});
 			$('body').append(snowflake);
-			snowflake.animate({
-				top:window.screen.height
-			},{
-				complete:function(){snowflake.remove()},
-				duration:element.input.speed.value,
-			});
+			window.setTimeout(function(){
+				snowflake.css('top',window.screen.height);
+			},100);
+			window.setTimeout(function(){
+				snowflake.remove();
+			},20000);
 		},100);
 		return element;
 	},
