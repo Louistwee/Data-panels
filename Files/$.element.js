@@ -301,7 +301,7 @@ $.element.snowflake = {
 		},{
 			duration:20000,
 			done:function(){
-				element.gotTop();
+				element.goTop();
 			}
 		});
 	},
