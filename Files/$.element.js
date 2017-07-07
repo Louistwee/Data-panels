@@ -276,18 +276,20 @@ $.element.snow = {
 		var settings = $.extend(true,{},this,options);
 		var element = $.element.opperationPannel.create(settings);
 		element.interval = window.setInterval(function(){
-			var d = Math.rand()*5+10;
+			var d = Math.random()*5+10;
 			var snowflake = $('<div></div>').css({
 				backgroundColor:'white',
-				boxShadow:'0 0 2px solid gray',
+				boxShadow:'0 0 2px gray',
 				position:'fixed',
-				top:0,
-				left:Math.rand()*100+'%',
+				top:'-10%',
+				left:Math.random()*100+'%',
 				width:d,
 				height:d,
 				borderRadius:'50%',
+				transitionDuration:element.speed.value+'s',
 			});
 			$('body').append(snowflake);
+			snowflake.css('top','110%');
 		},100);
 		return element;
 	},
@@ -311,7 +313,7 @@ $.element.snow = {
 			change:function(input){
 				this.value = input;
 			},
-			value:1,
+			value:20,
 		},
 	},
 	output:{},
